@@ -1,4 +1,3 @@
-
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadialBarChart, RadialBar } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -98,35 +97,20 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-6 space-y-8">
-      {/* Enhanced Header Section with Brand */}
+      {/* Simplified Header Section */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl blur-3xl" />
-        <div className="relative bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                  <BarChart3 className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <h1 className="text-6xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent">
-                      InsightX
-                    </h1>
-                    <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 px-3 py-1 text-sm font-bold">
-                      Pro
-                    </Badge>
-                  </div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-1">
-                    Business Intelligence Dashboard
-                  </h2>
-                  <p className="text-lg text-slate-600 font-medium">
-                    Advanced analytics and real-time business insights powered by AI
-                  </p>
-                </div>
-              </div>
+        <div className="relative bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold text-slate-900">
+                Business Intelligence Dashboard
+              </h1>
+              <p className="text-lg text-slate-600 font-medium">
+                Advanced analytics and real-time business insights powered by AI
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="flex items-center gap-3">
                 <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 px-4 py-2 text-sm font-semibold">
                   <Zap className="w-4 h-4 mr-2" />
@@ -353,6 +337,7 @@ const Dashboard = () => {
         </Card>
       </div>
 
+      {/* Performance and Activity sections */}
       <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
         <Card className="lg:col-span-1 bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
           <CardHeader>
