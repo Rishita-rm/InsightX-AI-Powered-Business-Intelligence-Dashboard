@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -56,77 +55,197 @@ import {
   TrendingUp,
   Sparkles,
   Monitor,
-  Camera
+  Camera,
+  Star,
+  ChevronRight,
+  Verified
 } from "lucide-react";
 
 const EnterpriseSettings = () => {
   const [activeCategory, setActiveCategory] = useState('core');
 
   const settingsCategories = [
-    { id: 'core', label: 'Core System', icon: Settings },
-    { id: 'security', label: 'Security & Compliance', icon: Shield },
-    { id: 'integration', label: 'Integration & API', icon: Webhook },
-    { id: 'infrastructure', label: 'Infrastructure', icon: Server },
-    { id: 'customization', label: 'Customization', icon: Palette },
-    { id: 'data', label: 'Data Management', icon: Database },
-    { id: 'notifications', label: 'Notifications', icon: Bell },
-    { id: 'ai', label: 'AI & Automation', icon: Brain },
-    { id: 'billing', label: 'Billing & Licensing', icon: Coins },
-    { id: 'developer', label: 'Developer Tools', icon: Code },
-    { id: 'audit', label: 'Audit & Compliance', icon: FileText }
+    { 
+      id: 'core', 
+      label: 'Core System', 
+      icon: Settings, 
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50',
+      borderColor: 'border-blue-200',
+      description: 'Essential system configuration'
+    },
+    { 
+      id: 'security', 
+      label: 'Security & Compliance', 
+      icon: Shield, 
+      color: 'from-red-500 to-rose-500',
+      bgColor: 'bg-gradient-to-br from-red-50 to-rose-50',
+      borderColor: 'border-red-200',
+      description: 'Advanced security controls'
+    },
+    { 
+      id: 'integration', 
+      label: 'Integration & API', 
+      icon: Webhook, 
+      color: 'from-purple-500 to-violet-500',
+      bgColor: 'bg-gradient-to-br from-purple-50 to-violet-50',
+      borderColor: 'border-purple-200',
+      description: 'External connections'
+    },
+    { 
+      id: 'infrastructure', 
+      label: 'Infrastructure', 
+      icon: Server, 
+      color: 'from-green-500 to-emerald-500',
+      bgColor: 'bg-gradient-to-br from-green-50 to-emerald-50',
+      borderColor: 'border-green-200',
+      description: 'Performance & scaling'
+    },
+    { 
+      id: 'customization', 
+      label: 'Customization', 
+      icon: Palette, 
+      color: 'from-orange-500 to-amber-500',
+      bgColor: 'bg-gradient-to-br from-orange-50 to-amber-50',
+      borderColor: 'border-orange-200',
+      description: 'Branding & themes'
+    },
+    { 
+      id: 'data', 
+      label: 'Data Management', 
+      icon: Database, 
+      color: 'from-indigo-500 to-blue-500',
+      bgColor: 'bg-gradient-to-br from-indigo-50 to-blue-50',
+      borderColor: 'border-indigo-200',
+      description: 'Data governance'
+    },
+    { 
+      id: 'notifications', 
+      label: 'Notifications', 
+      icon: Bell, 
+      color: 'from-yellow-500 to-orange-500',
+      bgColor: 'bg-gradient-to-br from-yellow-50 to-orange-50',
+      borderColor: 'border-yellow-200',
+      description: 'Alert management'
+    },
+    { 
+      id: 'ai', 
+      label: 'AI & Automation', 
+      icon: Brain, 
+      color: 'from-cyan-500 to-teal-500',
+      bgColor: 'bg-gradient-to-br from-cyan-50 to-teal-50',
+      borderColor: 'border-cyan-200',
+      description: 'Machine learning'
+    },
+    { 
+      id: 'billing', 
+      label: 'Billing & Licensing', 
+      icon: Coins, 
+      color: 'from-emerald-500 to-green-500',
+      bgColor: 'bg-gradient-to-br from-emerald-50 to-green-50',
+      borderColor: 'border-emerald-200',
+      description: 'Enterprise controls'
+    },
+    { 
+      id: 'developer', 
+      label: 'Developer Tools', 
+      icon: Code, 
+      color: 'from-violet-500 to-purple-500',
+      bgColor: 'bg-gradient-to-br from-violet-50 to-purple-50',
+      borderColor: 'border-violet-200',
+      description: 'Development environment'
+    },
+    { 
+      id: 'audit', 
+      label: 'Audit & Compliance', 
+      icon: FileText, 
+      color: 'from-slate-500 to-gray-500',
+      bgColor: 'bg-gradient-to-br from-slate-50 to-gray-50',
+      borderColor: 'border-slate-200',
+      description: 'Governance framework'
+    }
   ];
 
   const renderCoreSystemSettings = () => (
     <div className="space-y-8">
-      <Card className="border-blue-200 bg-blue-50/50">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-3">
-            <UserCog className="w-6 h-6 text-blue-600" />
-            <span>User & Access Management</span>
-          </CardTitle>
-          <CardDescription>Complete user lifecycle and access control management</CardDescription>
+      <Card className="glass-card hover:shadow-3xl transition-all duration-500 border-0 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+        <CardHeader className="relative">
+          <div className="flex items-center space-x-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg">
+              <UserCog className="w-6 h-6" />
+            </div>
+            <div>
+              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                User & Access Management
+              </CardTitle>
+              <CardDescription className="text-lg">Complete user lifecycle and access control management</CardDescription>
+            </div>
+            <Badge variant="secondary" className="ml-auto">
+              <Star className="w-3 h-3 mr-1" />
+              Premium
+            </Badge>
+          </div>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="auto-provisioning">Auto User Provisioning</Label>
-                <Switch id="auto-provisioning" />
+        <CardContent className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100">
+                <h4 className="font-semibold text-blue-900 mb-4 flex items-center">
+                  <Settings className="w-4 h-4 mr-2" />
+                  Core Settings
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="auto-provisioning" className="font-medium">Auto User Provisioning</Label>
+                    <Switch id="auto-provisioning" />
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="rbac-enabled" className="font-medium">Role-Based Access Control</Label>
+                    <Switch id="rbac-enabled" defaultChecked />
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="mfa-required" className="font-medium">Multi-Factor Authentication</Label>
+                    <Switch id="mfa-required" defaultChecked />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="rbac-enabled">Role-Based Access Control</Label>
-                <Switch id="rbac-enabled" defaultChecked />
-              </div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="mfa-required">Multi-Factor Authentication</Label>
-                <Switch id="mfa-required" defaultChecked />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="session-timeout">Session Timeout (minutes)</Label>
-                <Input id="session-timeout" defaultValue="30" type="number" />
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="session-timeout" className="text-sm font-semibold">Session Timeout (minutes)</Label>
+                  <Input id="session-timeout" defaultValue="30" type="number" className="focus:ring-2 focus:ring-blue-500" />
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="password-policy">Password Policy</Label>
-                <Select defaultValue="strong">
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="basic">Basic</SelectItem>
-                    <SelectItem value="strong">Strong</SelectItem>
-                    <SelectItem value="enterprise">Enterprise</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="sso-integration">SSO Integration</Label>
-                <Switch id="sso-integration" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="api-key-expiry">API Key Expiry (days)</Label>
-                <Input id="api-key-expiry" defaultValue="90" type="number" />
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-cyan-50 to-blue-50 border border-cyan-100">
+                <h4 className="font-semibold text-cyan-900 mb-4 flex items-center">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Security Configuration
+                </h4>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="password-policy" className="text-sm font-semibold">Password Policy</Label>
+                    <Select defaultValue="strong">
+                      <SelectTrigger className="focus:ring-2 focus:ring-cyan-500">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="basic">Basic</SelectItem>
+                        <SelectItem value="strong">Strong</SelectItem>
+                        <SelectItem value="enterprise">Enterprise</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="sso-integration" className="font-medium">SSO Integration</Label>
+                    <Switch id="sso-integration" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="api-key-expiry" className="text-sm font-semibold">API Key Expiry (days)</Label>
+                    <Input id="api-key-expiry" defaultValue="90" type="number" className="focus:ring-2 focus:ring-cyan-500" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -137,70 +256,99 @@ const EnterpriseSettings = () => {
 
   const renderSecuritySettings = () => (
     <div className="space-y-8">
-      <Card className="border-red-200 bg-red-50/50">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-3">
-            <ShieldCheck className="w-6 h-6 text-red-600" />
-            <span>Security Center</span>
-          </CardTitle>
-          <CardDescription>Advanced security monitoring and threat protection</CardDescription>
+      <Card className="glass-card hover:shadow-3xl transition-all duration-500 border-0 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-rose-500"></div>
+        <CardHeader className="relative">
+          <div className="flex items-center space-x-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 text-white shadow-lg">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <div>
+              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
+                Security Center
+              </CardTitle>
+              <CardDescription className="text-lg">Advanced security monitoring and threat protection</CardDescription>
+            </div>
+            <Badge variant="destructive" className="ml-auto">
+              <AlertTriangle className="w-3 h-3 mr-1" />
+              Critical
+            </Badge>
+          </div>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="audit-logging">Security Audit Logging</Label>
-                <Switch id="audit-logging" defaultChecked />
+        <CardContent className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-red-50 to-rose-50 border border-red-100">
+                <h4 className="font-semibold text-red-900 mb-4 flex items-center">
+                  <Eye className="w-4 h-4 mr-2" />
+                  Security Monitoring
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="audit-logging" className="font-medium">Security Audit Logging</Label>
+                    <Switch id="audit-logging" defaultChecked />
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
+                    <Label htmlFor="threat-detection" className="font-medium">Real-time Threat Detection</Label>
+                    <Switch id="threat-detection" defaultChecked />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="threat-detection">Real-time Threat Detection</Label>
-                <Switch id="threat-detection" defaultChecked />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="encryption-level">Data Encryption Level</Label>
-                <Select defaultValue="aes256">
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="aes128">AES-128</SelectItem>
-                    <SelectItem value="aes256">AES-256</SelectItem>
-                    <SelectItem value="rsa2048">RSA-2048</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="encryption-level" className="text-sm font-semibold">Data Encryption Level</Label>
+                  <Select defaultValue="aes256">
+                    <SelectTrigger className="focus:ring-2 focus:ring-red-500">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="aes128">AES-128</SelectItem>
+                      <SelectItem value="aes256">AES-256</SelectItem>
+                      <SelectItem value="rsa2048">RSA-2048</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="backup-frequency">Backup Frequency</Label>
-                <Select defaultValue="daily">
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="hourly">Hourly</SelectItem>
-                    <SelectItem value="daily">Daily</SelectItem>
-                    <SelectItem value="weekly">Weekly</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="compliance-framework">Compliance Framework</Label>
-                <Select defaultValue="gdpr">
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="gdpr">GDPR</SelectItem>
-                    <SelectItem value="hipaa">HIPAA</SelectItem>
-                    <SelectItem value="sox">SOX</SelectItem>
-                    <SelectItem value="iso27001">ISO 27001</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="retention-period">Data Retention (months)</Label>
-                <Input id="retention-period" defaultValue="24" type="number" />
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-rose-50 to-red-50 border border-rose-100">
+                <h4 className="font-semibold text-rose-900 mb-4 flex items-center">
+                  <Archive className="w-4 h-4 mr-2" />
+                  Data Protection
+                </h4>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="backup-frequency" className="text-sm font-semibold">Backup Frequency</Label>
+                    <Select defaultValue="daily">
+                      <SelectTrigger className="focus:ring-2 focus:ring-rose-500">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="hourly">Hourly</SelectItem>
+                        <SelectItem value="daily">Daily</SelectItem>
+                        <SelectItem value="weekly">Weekly</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="compliance-framework" className="text-sm font-semibold">Compliance Framework</Label>
+                    <Select defaultValue="gdpr">
+                      <SelectTrigger className="focus:ring-2 focus:ring-rose-500">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="gdpr">GDPR</SelectItem>
+                        <SelectItem value="hipaa">HIPAA</SelectItem>
+                        <SelectItem value="sox">SOX</SelectItem>
+                        <SelectItem value="iso27001">ISO 27001</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="retention-period" className="text-sm font-semibold">Data Retention (months)</Label>
+                    <Input id="retention-period" defaultValue="24" type="number" className="focus:ring-2 focus:ring-rose-500" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -854,46 +1002,109 @@ const EnterpriseSettings = () => {
     }
   };
 
+  const activeConfig = settingsCategories.find(cat => cat.id === activeCategory);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
-      <div className="container mx-auto p-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Enterprise Settings</h1>
-          <p className="text-lg text-slate-600">Comprehensive system configuration and management</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto p-8 relative z-10">
+        {/* Enhanced Header */}
+        <div className="mb-12 text-center relative">
+          <div className="inline-flex items-center space-x-3 mb-4">
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-xl">
+              <Settings className="w-8 h-8" />
+            </div>
+            <div>
+              <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-2">
+                Enterprise Settings
+              </h1>
+              <p className="text-xl text-slate-600 font-medium">Comprehensive system configuration and management</p>
+            </div>
+          </div>
         </div>
 
-        {/* Category Navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 gap-4 mb-8">
+        {/* Enhanced Category Navigation */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-12">
           {settingsCategories.map((category) => (
-            <Button
+            <Card 
               key={category.id}
-              variant={activeCategory === category.id ? "default" : "outline"}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex flex-col items-center space-y-2 h-auto py-4 px-3 text-center ${
+              className={`cursor-pointer transition-all duration-300 hover:scale-105 border-2 ${
                 activeCategory === category.id 
-                  ? 'bg-blue-600 text-white shadow-lg' 
-                  : 'hover:bg-blue-50 hover:border-blue-300'
+                  ? `${category.borderColor} ${category.bgColor} shadow-xl` 
+                  : 'border-gray-200 bg-white hover:shadow-lg'
               }`}
+              onClick={() => setActiveCategory(category.id)}
             >
-              <category.icon className="w-6 h-6" />
-              <span className="text-xs font-medium leading-tight">{category.label}</span>
-            </Button>
+              <CardContent className="p-6 text-center">
+                <div className={`w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center ${
+                  activeCategory === category.id 
+                    ? `bg-gradient-to-br ${category.color} text-white shadow-lg` 
+                    : 'bg-gray-100 text-gray-600'
+                }`}>
+                  <category.icon className="w-6 h-6" />
+                </div>
+                <h3 className={`font-semibold text-sm mb-1 ${
+                  activeCategory === category.id ? 'text-gray-900' : 'text-gray-700'
+                }`}>
+                  {category.label}
+                </h3>
+                <p className="text-xs text-gray-500">{category.description}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
+
+        {/* Active Category Header */}
+        {activeConfig && (
+          <div className="mb-8">
+            <Card className="glass-card border-0 shadow-xl">
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-4">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${activeConfig.color} text-white shadow-lg`}>
+                    <activeConfig.icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-gray-900">{activeConfig.label}</h2>
+                    <p className="text-gray-600">{activeConfig.description}</p>
+                  </div>
+                  <ChevronRight className="w-6 h-6 text-gray-400" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* Content Area */}
         <div className="space-y-8">
           {renderCategoryContent()}
           
-          {/* Save Actions */}
-          <div className="flex justify-end space-x-4 pt-8 border-t">
-            <Button variant="outline">Cancel</Button>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              Save Configuration
-            </Button>
-          </div>
+          {/* Enhanced Save Actions */}
+          <Card className="glass-card border-0 shadow-xl">
+            <CardContent className="p-8">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-3">
+                  <Verified className="w-6 h-6 text-green-500" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Configuration Status</h3>
+                    <p className="text-sm text-gray-600">All changes will be applied system-wide</p>
+                  </div>
+                </div>
+                <div className="flex space-x-4">
+                  <Button variant="outline" className="px-8 py-3 font-semibold">
+                    Cancel Changes
+                  </Button>
+                  <Button className="px-8 py-3 font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-xl">
+                    <CheckCircle className="w-5 h-5 mr-2" />
+                    Save Configuration
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
