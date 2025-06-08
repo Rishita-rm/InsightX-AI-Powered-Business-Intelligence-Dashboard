@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Dashboard from '@/components/Dashboard';
@@ -38,7 +37,30 @@ import {
   LineChart,
   BarChart2,
   Radar,
-  TrendingDown
+  TrendingDown,
+  FileBarChart,
+  Calendar,
+  Bookmark,
+  Award,
+  Briefcase,
+  PresentationChart,
+  TableProperties,
+  ChartNoAxesCombined,
+  BarChart4,
+  Gauge,
+  MonitorSpeaker,
+  Palette,
+  UserCog,
+  ShieldCheck,
+  Webhook,
+  Key,
+  Server,
+  Cloud,
+  Coins,
+  Bell,
+  Mail,
+  Camera,
+  MousePointer2
 } from "lucide-react";
 
 const Index = () => {
@@ -521,148 +543,249 @@ const Index = () => {
         );
       case 'reports':
         return (
-          <div className="animate-fade-in space-y-8 min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50">
-            {/* Executive Header */}
-            <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200/60 p-8 rounded-2xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-orange-700 rounded-xl flex items-center justify-center">
-                      <FileText className="w-6 h-6 text-white" />
+          <div className="animate-fade-in space-y-10 min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 relative overflow-hidden">
+            {/* Creative Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-20 left-16 w-72 h-72 bg-gradient-to-br from-orange-400/12 to-red-500/12 rounded-full blur-3xl animate-float"></div>
+              <div className="absolute bottom-24 right-16 w-96 h-96 bg-gradient-to-br from-amber-400/10 to-orange-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+              <div className="absolute top-1/2 right-1/4 w-56 h-56 bg-gradient-to-br from-red-400/8 to-pink-500/8 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+            </div>
+
+            {/* Premium Executive Header */}
+            <div className="relative bg-white/95 backdrop-blur-xl border border-orange-200/60 p-10 rounded-3xl shadow-2xl mx-6 mt-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-transparent to-red-50 rounded-3xl"></div>
+              <div className="relative flex items-center justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl flex items-center justify-center shadow-xl">
+                        <FileBarChart className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
+                        <Award className="w-3 h-3 text-white" />
+                      </div>
                     </div>
                     <div>
-                      <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                        Enterprise Reporting Suite
+                      <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-orange-900 to-red-900 bg-clip-text text-transparent leading-tight">
+                        Executive Intelligence Center
                       </h1>
-                      <p className="text-lg text-slate-600 font-medium">
-                        Comprehensive business intelligence and analytics reporting for executive decision-making
+                      <p className="text-xl text-slate-600 font-medium mt-2">
+                        Advanced business intelligence, executive dashboards, and strategic reporting for data-driven decision making
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <Badge variant="secondary" className="bg-amber-50 text-amber-700 border-amber-200 px-4 py-2 text-sm font-semibold">
-                    <FileText className="w-4 h-4 mr-2" />
-                    47 Active Reports
-                  </Badge>
-                  <Button className="bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 text-white px-6 py-3 text-sm font-semibold shadow-lg">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Create New Report
+                <div className="flex items-center space-x-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200 px-5 py-2 text-sm font-bold shadow-lg">
+                      <PresentationChart className="w-4 h-4 mr-2" />
+                      127 Active Reports
+                    </Badge>
+                    <div className="text-sm text-slate-500 font-medium">Live Updates</div>
+                  </div>
+                  <Button className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-700 hover:from-orange-700 hover:via-red-700 hover:to-pink-800 text-white px-8 py-4 text-base font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                    <Briefcase className="w-5 h-5 mr-3" />
+                    Generate Executive Report
                   </Button>
                 </div>
               </div>
             </div>
 
-            {/* Report Categories Grid */}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-8">
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <BarChart3 className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">Executive Dashboard</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        High-level KPIs, strategic business metrics, and executive-level performance indicators
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
+            {/* Advanced Report Analytics Dashboard */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-6">
+              {[
+                { icon: FileBarChart, label: "Total Reports", value: "127", trend: "+18%", color: "orange", chart: "trending-up" },
+                { icon: Calendar, label: "Scheduled", value: "45", trend: "+12%", color: "blue", chart: "trending-up" },
+                { icon: Award, label: "Executive Views", value: "2.8k", trend: "+67%", color: "emerald", chart: "trending-up" },
+                { icon: Clock, label: "Avg. Generation", value: "47s", trend: "-23%", color: "violet", chart: "trending-down" }
+              ].map((metric, index) => (
+                <Card key={index} className="group relative bg-white/95 backdrop-blur-xl border border-orange-200/60 shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-orange-50 group-hover:to-orange-100 transition-all duration-500"></div>
+                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                  
+                  <CardHeader className="pb-4 relative">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Monthly Reports</span>
-                      <Badge className="bg-blue-50 text-blue-700 border-blue-200 font-semibold">12</Badge>
+                      <div className={`w-14 h-14 bg-gradient-to-br from-${metric.color}-500 to-${metric.color}-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-lg`}>
+                        <metric.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <div className={`flex items-center space-x-1 text-sm font-bold ${metric.chart === 'trending-up' ? 'text-emerald-600' : metric.chart === 'trending-down' ? 'text-amber-600' : 'text-slate-600'}`}>
+                          {metric.chart === 'trending-up' ? <TrendingUp className="w-4 h-4" /> : metric.chart === 'trending-down' ? <TrendingDown className="w-4 h-4" /> : <Activity className="w-4 h-4" />}
+                          <span>{metric.trend}</span>
+                        </div>
+                        <div className="text-xs text-slate-500 font-medium">vs last period</div>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">KPIs Tracked</span>
-                      <span className="text-sm font-bold text-slate-900">28</span>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 relative">
+                    <div className="space-y-3">
+                      <p className="text-4xl font-black text-slate-900 group-hover:text-orange-900 transition-colors">{metric.value}</p>
+                      <p className="text-sm font-semibold text-slate-600 group-hover:text-slate-700 transition-colors">{metric.label}</p>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Automation Level</span>
-                      <span className="text-sm font-bold text-emerald-700">100%</span>
+                    
+                    {/* Advanced Progress Visualization */}
+                    <div className="mt-4 relative">
+                      <div className="flex items-end space-x-1 h-10">
+                        {[...Array(8)].map((_, i) => (
+                          <div 
+                            key={i} 
+                            className={`flex-1 bg-gradient-to-t from-${metric.color}-200 to-${metric.color}-400 rounded-t-lg group-hover:from-${metric.color}-300 group-hover:to-${metric.color}-500 transition-all duration-500`}
+                            style={{ 
+                              height: `${Math.random() * 80 + 20}%`,
+                              animationDelay: `${i * 150}ms`
+                            }}
+                          ></div>
+                        ))}
+                      </div>
+                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     </div>
-                  </div>
-                  <Button variant="outline" className="w-full group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    View Executive Reports
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <Brain className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">Technical Analysis Reports</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        Detailed statistical analysis, data deep-dives, and comprehensive technical documentation
-                      </CardDescription>
-                    </div>
+            {/* Premium Report Category Showcase */}
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 px-6">
+              {[
+                {
+                  icon: ChartNoAxesCombined,
+                  title: "Executive Dashboard Suite",
+                  description: "Real-time executive KPIs, strategic metrics, and C-level performance indicators with advanced visualization",
+                  stats: { dashboards: "23", kpis: "156", executives: "12" },
+                  gradient: "from-orange-500 to-red-600",
+                  bgGradient: "from-orange-50 to-red-50",
+                  features: ["Real-time executive metrics", "Strategic KPI monitoring", "C-level performance tracking", "Advanced drill-down capabilities"],
+                  buttonText: "View Executive Suite"
+                },
+                {
+                  icon: BarChart4,
+                  title: "Analytical Intelligence Hub",
+                  description: "Deep-dive analytics, statistical modeling, and comprehensive business intelligence with predictive insights",
+                  stats: { analyses: "67", models: "34", insights: "189" },
+                  gradient: "from-blue-500 to-indigo-600",
+                  bgGradient: "from-blue-50 to-indigo-50",
+                  features: ["Advanced statistical modeling", "Predictive analytics engine", "Business intelligence automation", "Custom analytical frameworks"],
+                  buttonText: "Access Analytics Hub"
+                },
+                {
+                  icon: Gauge,
+                  title: "Custom Report Generator",
+                  description: "Intelligent report builder with AI-powered insights, automated scheduling, and enterprise-grade customization",
+                  stats: { templates: "45", schedules: "89", formats: "12" },
+                  gradient: "from-emerald-500 to-teal-600",
+                  bgGradient: "from-emerald-50 to-teal-50",
+                  features: ["AI-powered report generation", "Smart scheduling automation", "Multi-format export engine", "Enterprise template library"],
+                  buttonText: "Build Custom Reports"
+                }
+              ].map((category, index) => (
+                <Card key={index} className="group relative bg-white/95 backdrop-blur-xl border border-orange-200/60 shadow-2xl hover:shadow-4xl transition-all duration-700 overflow-hidden">
+                  {/* Dynamic Header Animation */}
+                  <div className={`h-4 bg-gradient-to-r ${category.gradient} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1500"></div>
                   </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Analytical Reports</span>
-                      <Badge className="bg-indigo-50 text-indigo-700 border-indigo-200 font-semibold">18</Badge>
+                  
+                  {/* Interactive Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.bgGradient} opacity-0 group-hover:opacity-50 transition-all duration-700`}></div>
+                  
+                  <CardHeader className="p-8 relative">
+                    <div className="flex items-start space-x-5">
+                      <div className="relative">
+                        <div className={`w-18 h-18 bg-gradient-to-br ${category.gradient} rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl`}>
+                          <category.icon className="w-9 h-9 text-white" />
+                        </div>
+                        <div className="absolute -bottom-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-lg">
+                          <Award className="w-4 h-4 text-orange-600 animate-pulse" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <CardTitle className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-900 transition-colors">{category.title}</CardTitle>
+                        <CardDescription className="text-slate-600 font-medium leading-relaxed text-base">
+                          {category.description}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Data Sources</span>
-                      <span className="text-sm font-bold text-slate-900">15</span>
+                  </CardHeader>
+                  
+                  <CardContent className="px-8 pb-8 space-y-8 relative">
+                    {/* Enhanced Stats Grid */}
+                    <div className="grid grid-cols-3 gap-4">
+                      {Object.entries(category.stats).map(([key, value], statIndex) => (
+                        <div key={statIndex} className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center border border-orange-200/60 group-hover:bg-white group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                          <div className="text-2xl font-black text-slate-900 mb-1">{value}</div>
+                          <div className="text-xs font-semibold text-slate-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Processing Time</span>
-                      <span className="text-sm font-bold text-slate-900">Less than 2min</span>
-                    </div>
-                  </div>
-                  <Button variant="outline" className="w-full group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    Access Technical Reports
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
 
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <Target className="w-7 h-7 text-white" />
+                    {/* Premium Features List */}
+                    <div className="space-y-4">
+                      {category.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center text-sm font-semibold text-slate-700 group-hover:text-slate-800 transition-colors">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center mr-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                            <CheckCircle className="w-4 h-4 text-white" />
+                          </div>
+                          {feature}
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">Custom Report Builder</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        Tailored reports based on specific business requirements with advanced customization options
-                      </CardDescription>
+
+                    {/* Executive Action Button */}
+                    <Button variant="outline" className={`w-full group-hover:bg-gradient-to-r group-hover:${category.gradient} group-hover:text-white group-hover:border-transparent transition-all duration-500 font-bold py-5 text-base border-2 border-orange-300 group-hover:shadow-2xl transform group-hover:scale-105`}>
+                      {category.buttonText}
+                      <Briefcase className="w-5 h-5 ml-3 group-hover:rotate-12 transition-transform duration-300" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Executive Reporting Command Center */}
+            <div className="mx-6 mb-6">
+              <Card className="bg-gradient-to-br from-slate-900 via-orange-900 to-red-900 text-white shadow-4xl border-0 overflow-hidden">
+                <div className="absolute inset-0 opacity-30" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='25' height='25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='25' height='25' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 25 0 L 0 0 0 25' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E")`
+                }}></div>
+                <CardContent className="p-12 relative">
+                  <div className="flex items-center justify-between mb-10">
+                    <div>
+                      <h3 className="text-4xl font-bold mb-3 flex items-center">
+                        <PresentationChart className="w-10 h-10 mr-4 text-orange-300" />
+                        Executive Reporting Command Center
+                      </h3>
+                      <p className="text-orange-200 text-xl">Real-time business intelligence, executive insights, and strategic decision support</p>
+                    </div>
+                    <div className="flex space-x-4">
+                      <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-6 py-3">
+                        <Eye className="w-5 h-5 mr-2" />
+                        Live Preview
+                      </Button>
+                      <Button className="bg-gradient-to-r from-orange-500 to-red-600 text-white hover:from-orange-600 hover:to-red-700 px-6 py-3">
+                        <Award className="w-5 h-5 mr-2" />
+                        Generate Report
+                      </Button>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Custom Templates</span>
-                      <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-semibold">17</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Scheduled Reports</span>
-                      <span className="text-sm font-bold text-slate-900">32</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Export Formats</span>
-                      <span className="text-sm font-bold text-slate-900">6</span>
-                    </div>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                      { icon: TableProperties, label: "Executive Dashboards", status: "Live", count: "23", trend: "+15%" },
+                      { icon: FileBarChart, label: "Strategic Reports", status: "Active", count: "67", trend: "+28%" },
+                      { icon: Gauge, label: "Performance Metrics", status: "Real-time", count: "156", trend: "+42%" },
+                      { icon: Award, label: "Intelligence Insights", status: "Generated", count: "89", trend: "+67%" }
+                    ].map((report, index) => (
+                      <div key={index} className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-center hover:bg-white/20 transition-all duration-500 group border border-white/10 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <report.icon className="w-12 h-12 mx-auto mb-6 text-orange-300 group-hover:text-white transition-colors group-hover:scale-110 transform duration-300" />
+                        <div className="text-2xl font-bold mb-2">{report.count}</div>
+                        <div className="text-sm text-orange-200 mb-3">{report.label}</div>
+                        <Badge className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-2">
+                          {report.status}
+                        </Badge>
+                        <div className="text-xs text-white/80 font-semibold">{report.trend} this month</div>
+                      </div>
+                    ))}
                   </div>
-                  <Button variant="outline" className="w-full group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    Build Custom Report
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -670,148 +793,238 @@ const Index = () => {
         );
       case 'settings':
         return (
-          <div className="animate-fade-in space-y-8 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
-            {/* Executive Header */}
-            <div className="bg-white/80 backdrop-blur-sm border-b border-slate-200/60 p-8 rounded-2xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-gray-700 rounded-xl flex items-center justify-center">
-                      <Settings className="w-6 h-6 text-white" />
+          <div className="animate-fade-in space-y-10 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 relative overflow-hidden">
+            {/* Creative Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-24 right-20 w-80 h-80 bg-gradient-to-br from-slate-400/8 to-gray-500/8 rounded-full blur-3xl animate-float"></div>
+              <div className="absolute bottom-20 left-16 w-96 h-96 bg-gradient-to-br from-blue-400/6 to-indigo-500/6 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+              <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-purple-400/6 to-pink-500/6 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+            </div>
+
+            {/* Premium Executive Header */}
+            <div className="relative bg-white/95 backdrop-blur-xl border border-slate-200/60 p-10 rounded-3xl shadow-2xl mx-6 mt-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-transparent to-gray-50 rounded-3xl"></div>
+              <div className="relative flex items-center justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-gray-800 rounded-2xl flex items-center justify-center shadow-xl">
+                        <Settings className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center animate-pulse">
+                        <ShieldCheck className="w-3 h-3 text-white" />
+                      </div>
                     </div>
                     <div>
-                      <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                        System Configuration Center
+                      <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-gray-800 to-slate-700 bg-clip-text text-transparent leading-tight">
+                        Enterprise Control Center
                       </h1>
-                      <p className="text-lg text-slate-600 font-medium">
-                        Advanced enterprise settings and comprehensive system management console
+                      <p className="text-xl text-slate-600 font-medium mt-2">
+                        Advanced system configuration, security management, and enterprise-grade administration platform
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 border-emerald-200 px-4 py-2 text-sm font-semibold">
-                    <Shield className="w-4 h-4 mr-2" />
-                    System Secure
-                  </Badge>
-                  <Button className="bg-gradient-to-r from-slate-600 to-gray-700 hover:from-slate-700 hover:to-gray-800 text-white px-6 py-3 text-sm font-semibold shadow-lg">
-                    <Settings className="w-4 h-4 mr-2" />
+                <div className="flex items-center space-x-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 border-emerald-200 px-5 py-2 text-sm font-bold shadow-lg">
+                      <ShieldCheck className="w-4 h-4 mr-2" />
+                      System Secure
+                    </Badge>
+                    <div className="text-sm text-slate-500 font-medium">A+ Security Score</div>
+                  </div>
+                  <Button className="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-800 hover:from-slate-800 hover:via-gray-800 hover:to-slate-900 text-white px-8 py-4 text-base font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                    <UserCog className="w-5 h-5 mr-3" />
                     Advanced Configuration
                   </Button>
                 </div>
               </div>
             </div>
 
-            {/* Settings Categories Grid */}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-8">
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <Users className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">User Management Center</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        Comprehensive account management, role assignments, and enterprise permission control
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
+            {/* System Status Overview */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-6">
+              {[
+                { icon: UserCog, label: "User Accounts", value: "247", trend: "+12%", color: "blue", chart: "trending-up" },
+                { icon: ShieldCheck, label: "Security Score", value: "A+", trend: "Excellent", color: "emerald", chart: "stable" },
+                { icon: Server, label: "System Load", value: "23%", trend: "Optimal", color: "green", chart: "stable" },
+                { icon: Bell, label: "Active Alerts", value: "3", trend: "-67%", color: "amber", chart: "trending-down" }
+              ].map((metric, index) => (
+                <Card key={index} className="group relative bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-50 group-hover:to-slate-100 transition-all duration-500"></div>
+                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-slate-500 via-gray-500 to-slate-600 opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
+                  
+                  <CardHeader className="pb-4 relative">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Active Users</span>
-                      <Badge className="bg-blue-50 text-blue-700 border-blue-200 font-semibold">124</Badge>
+                      <div className={`w-14 h-14 bg-gradient-to-br from-${metric.color}-500 to-${metric.color}-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
+                        <metric.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <div className={`flex items-center space-x-1 text-sm font-bold ${metric.chart === 'trending-up' ? 'text-emerald-600' : metric.chart === 'trending-down' ? 'text-amber-600' : 'text-slate-600'}`}>
+                          {metric.chart === 'trending-up' ? <TrendingUp className="w-4 h-4" /> : metric.chart === 'trending-down' ? <TrendingDown className="w-4 h-4" /> : <Activity className="w-4 h-4" />}
+                          <span>{metric.trend}</span>
+                        </div>
+                        <div className="text-xs text-slate-500 font-medium">system status</div>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Role Groups</span>
-                      <span className="text-sm font-bold text-slate-900">8</span>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 relative">
+                    <div className="space-y-3">
+                      <p className="text-4xl font-black text-slate-900 group-hover:text-slate-700 transition-colors">{metric.value}</p>
+                      <p className="text-sm font-semibold text-slate-600 group-hover:text-slate-700 transition-colors">{metric.label}</p>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">SSO Integration</span>
-                      <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-semibold">Active</Badge>
+                    
+                    {/* System Health Indicator */}
+                    <div className="mt-4 relative h-3 bg-slate-100 rounded-full overflow-hidden">
+                      <div className={`h-full bg-gradient-to-r from-${metric.color}-400 to-${metric.color}-600 rounded-full group-hover:scale-x-105 transition-transform duration-500 origin-left`} style={{width: metric.chart === 'trending-up' ? '85%' : metric.chart === 'stable' ? '95%' : '70%'}}></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     </div>
-                  </div>
-                  <Button variant="outline" className="w-full group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    Manage Users
-                    <Users className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-amber-500 to-orange-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <Globe className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">API Integration Hub</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        External connections, webhook management, and comprehensive API configuration center
-                      </CardDescription>
-                    </div>
+            {/* Enterprise Configuration Categories */}
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 px-6">
+              {[
+                {
+                  icon: UserCog,
+                  title: "User & Access Management",
+                  description: "Comprehensive user administration, role-based access control, and enterprise identity management solutions",
+                  stats: { users: "247", roles: "15", policies: "34" },
+                  gradient: "from-blue-500 to-indigo-600",
+                  bgGradient: "from-blue-50 to-indigo-50",
+                  features: ["Enterprise SSO integration", "Advanced role management", "Multi-factor authentication", "Automated user provisioning"],
+                  buttonText: "Manage Users & Access"
+                },
+                {
+                  icon: Webhook,
+                  title: "API & Integration Hub",
+                  description: "Advanced API management, webhook configuration, and seamless third-party integrations with enterprise-grade security",
+                  stats: { apis: "23", webhooks: "45", integrations: "18" },
+                  gradient: "from-emerald-500 to-teal-600",
+                  bgGradient: "from-emerald-50 to-teal-50",
+                  features: ["RESTful API management", "Real-time webhook processing", "OAuth 2.0 authentication", "Rate limiting & monitoring"],
+                  buttonText: "Configure Integrations"
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Security & Compliance Center",
+                  description: "Enterprise security management, compliance monitoring, and advanced threat protection with audit capabilities",
+                  stats: { policies: "67", audits: "156", compliance: "100%" },
+                  gradient: "from-red-500 to-pink-600",
+                  bgGradient: "from-red-50 to-pink-50",
+                  features: ["Real-time security monitoring", "Compliance framework management", "Advanced audit logging", "Threat detection & response"],
+                  buttonText: "Security Dashboard"
+                }
+              ].map((category, index) => (
+                <Card key={index} className="group relative bg-white/95 backdrop-blur-xl border border-slate-200/60 shadow-2xl hover:shadow-4xl transition-all duration-700 overflow-hidden">
+                  {/* Sophisticated Header Design */}
+                  <div className={`h-4 bg-gradient-to-r ${category.gradient} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1500"></div>
                   </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Active Connections</span>
-                      <Badge className="bg-amber-50 text-amber-700 border-amber-200 font-semibold">15</Badge>
+                  
+                  {/* Dynamic Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.bgGradient} opacity-0 group-hover:opacity-40 transition-all duration-700`}></div>
+                  
+                  <CardHeader className="p-8 relative">
+                    <div className="flex items-start space-x-5">
+                      <div className="relative">
+                        <div className={`w-18 h-18 bg-gradient-to-br ${category.gradient} rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-2xl`}>
+                          <category.icon className="w-9 h-9 text-white" />
+                        </div>
+                        <div className="absolute -bottom-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-lg">
+                          <Settings className="w-4 h-4 text-slate-600 animate-pulse" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <CardTitle className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">{category.title}</CardTitle>
+                        <CardDescription className="text-slate-600 font-medium leading-relaxed text-base">
+                          {category.description}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">API Keys</span>
-                      <span className="text-sm font-bold text-slate-900">7</span>
+                  </CardHeader>
+                  
+                  <CardContent className="px-8 pb-8 space-y-8 relative">
+                    {/* System Stats Grid */}
+                    <div className="grid grid-cols-3 gap-4">
+                      {Object.entries(category.stats).map(([key, value], statIndex) => (
+                        <div key={statIndex} className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center border border-slate-200/60 group-hover:bg-white group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                          <div className="text-2xl font-black text-slate-900 mb-1">{value}</div>
+                          <div className="text-xs font-semibold text-slate-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Rate Limit</span>
-                      <span className="text-sm font-bold text-slate-900">10k/min</span>
-                    </div>
-                  </div>
-                  <Button variant="outline" className="w-full group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    Configure APIs
-                    <Globe className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
 
-              <Card className="bg-white/90 backdrop-blur-sm border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 group overflow-hidden">
-                <div className="h-2 bg-gradient-to-r from-red-500 to-rose-600"></div>
-                <CardHeader className="p-8">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
-                      <Lock className="w-7 h-7 text-white" />
+                    {/* Advanced Features List */}
+                    <div className="space-y-4">
+                      {category.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center text-sm font-semibold text-slate-700 group-hover:text-slate-800 transition-colors">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-400 to-gray-600 flex items-center justify-center mr-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                            <CheckCircle className="w-4 h-4 text-white" />
+                          </div>
+                          {feature}
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-slate-900 mb-2">Security & Compliance</CardTitle>
-                      <CardDescription className="text-slate-600 font-medium leading-relaxed">
-                        Advanced access control, comprehensive audit logging, and enterprise compliance management
-                      </CardDescription>
+
+                    {/* Enterprise Action Button */}
+                    <Button variant="outline" className={`w-full group-hover:bg-gradient-to-r group-hover:${category.gradient} group-hover:text-white group-hover:border-transparent transition-all duration-500 font-bold py-5 text-base border-2 border-slate-300 group-hover:shadow-2xl transform group-hover:scale-105`}>
+                      {category.buttonText}
+                      <Settings className="w-5 h-5 ml-3 group-hover:rotate-180 transition-transform duration-500" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Enterprise System Management Console */}
+            <div className="mx-6 mb-6">
+              <Card className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white shadow-4xl border-0 overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='30' height='30' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 30 0 L 0 0 0 30' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E")`
+                }}></div>
+                <CardContent className="p-12 relative">
+                  <div className="flex items-center justify-between mb-10">
+                    <div>
+                      <h3 className="text-4xl font-bold mb-3 flex items-center">
+                        <MonitorSpeaker className="w-10 h-10 mr-4 text-slate-300" />
+                        Enterprise System Console
+                      </h3>
+                      <p className="text-slate-300 text-xl">Advanced system monitoring, configuration management, and enterprise administration</p>
+                    </div>
+                    <div className="flex space-x-4">
+                      <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-6 py-3">
+                        <Activity className="w-5 h-5 mr-2" />
+                        System Monitor
+                      </Button>
+                      <Button className="bg-gradient-to-r from-slate-600 to-gray-700 text-white hover:from-slate-700 hover:to-gray-800 px-6 py-3">
+                        <UserCog className="w-5 h-5 mr-2" />
+                        Admin Panel
+                      </Button>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="px-8 pb-8 space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Security Score</span>
-                      <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-semibold">A+</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Audit Events</span>
-                      <span className="text-sm font-bold text-slate-900">2,847</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-slate-700">Compliance</span>
-                      <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 font-semibold">SOC2</Badge>
-                    </div>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                      { icon: Cloud, label: "Cloud Infrastructure", status: "Optimized", count: "12", health: "99.9%" },
+                      { icon: Server, label: "Server Management", status: "Active", count: "8", health: "98.7%" },
+                      { icon: Key, label: "Security Protocols", status: "Enforced", count: "45", health: "100%" },
+                      { icon: Coins, label: "Resource Optimization", status: "Efficient", count: "23", health: "97.3%" }
+                    ].map((system, index) => (
+                      <div key={index} className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-500 group border border-white/10 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 to-gray-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <system.icon className="w-12 h-12 mx-auto mb-6 text-slate-300 group-hover:text-white transition-colors group-hover:scale-110 transform duration-300" />
+                        <div className="text-2xl font-bold mb-2">{system.count}</div>
+                        <div className="text-sm text-slate-300 mb-3">{system.label}</div>
+                        <Badge className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-2">
+                          {system.status}
+                        </Badge>
+                        <div className="text-xs text-white/80 font-semibold">{system.health} uptime</div>
+                      </div>
+                    ))}
                   </div>
-                  <Button variant="outline" className="w-full group-hover:bg-red-600 group-hover:text-white transition-all duration-300 font-semibold py-3 border-slate-300">
-                    Security Settings
-                    <Lock className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
                 </CardContent>
               </Card>
             </div>
