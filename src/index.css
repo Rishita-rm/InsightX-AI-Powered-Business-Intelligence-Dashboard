@@ -16,7 +16,7 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    --primary: 59 130 246;
+    --primary: 99 102 241;
     --primary-foreground: 248 250 252;
 
     --secondary: 100 116 139;
@@ -25,7 +25,7 @@
     --muted: 241 245 249;
     --muted-foreground: 100 116 139;
 
-    --accent: 139 92 246;
+    --accent: 168 85 247;
     --accent-foreground: 248 250 252;
 
     --destructive: 239 68 68;
@@ -33,23 +33,23 @@
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 59 130 246;
+    --ring: 99 102 241;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 15 23 42;
-    --sidebar-foreground: 226 232 240;
-    --sidebar-primary: 59 130 246;
+    --sidebar-background: 71 85 105;
+    --sidebar-foreground: 241 245 249;
+    --sidebar-primary: 99 102 241;
     --sidebar-primary-foreground: 248 250 252;
-    --sidebar-accent: 30 41 59;
-    --sidebar-accent-foreground: 226 232 240;
-    --sidebar-border: 30 41 59;
-    --sidebar-ring: 59 130 246;
+    --sidebar-accent: 100 116 139;
+    --sidebar-accent-foreground: 241 245 249;
+    --sidebar-border: 148 163 184;
+    --sidebar-ring: 99 102 241;
 
     /* Enhanced BI Dashboard Variables */
-    --chart-primary: 59 130 246;
-    --chart-secondary: 139 92 246;
-    --chart-accent: 16 185 129;
+    --chart-primary: 99 102 241;
+    --chart-secondary: 168 85 247;
+    --chart-accent: 34 197 94;
     --chart-warning: 245 158 11;
     --chart-danger: 239 68 68;
     --success: 34 197 94;
@@ -66,7 +66,7 @@
     --popover: 30 41 59;
     --popover-foreground: 248 250 252;
 
-    --primary: 59 130 246;
+    --primary: 99 102 241;
     --primary-foreground: 15 23 42;
 
     --secondary: 71 85 105;
@@ -75,7 +75,7 @@
     --muted: 30 41 59;
     --muted-foreground: 148 163 184;
 
-    --accent: 139 92 246;
+    --accent: 168 85 247;
     --accent-foreground: 248 250 252;
 
     --destructive: 239 68 68;
@@ -83,16 +83,16 @@
 
     --border: 30 41 59;
     --input: 30 41 59;
-    --ring: 59 130 246;
+    --ring: 99 102 241;
 
     --sidebar-background: 15 23 42;
     --sidebar-foreground: 226 232 240;
-    --sidebar-primary: 59 130 246;
+    --sidebar-primary: 99 102 241;
     --sidebar-primary-foreground: 248 250 252;
     --sidebar-accent: 30 41 59;
     --sidebar-accent-foreground: 226 232 240;
     --sidebar-border: 30 41 59;
-    --sidebar-ring: 59 130 246;
+    --sidebar-ring: 99 102 241;
   }
 }
 
@@ -103,21 +103,22 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, rgb(248, 250, 252) 0%, rgb(241, 245, 249) 50%, rgb(226, 232, 240) 100%);
     min-height: 100vh;
   }
 }
 
 @layer components {
   .chart-container {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/80 p-6 shadow-lg backdrop-blur-sm;
+    @apply rounded-xl border-0 bg-gradient-to-br from-card/95 via-card to-card/90 p-6 shadow-lg backdrop-blur-sm;
   }
   
   .insight-card {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/80 p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
+    @apply rounded-xl border-0 bg-gradient-to-br from-card/95 via-card to-card/90 p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
   }
   
   .metric-card {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/50 p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden backdrop-blur-sm;
+    @apply rounded-xl border-0 bg-gradient-to-br from-card/95 via-card to-card/85 p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden backdrop-blur-sm;
   }
   
   .gradient-text {
@@ -130,7 +131,7 @@
 
   /* Professional glass morphism effects */
   .glass-card {
-    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl;
+    @apply backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl;
   }
 
   /* Enhanced gradients for depth */
