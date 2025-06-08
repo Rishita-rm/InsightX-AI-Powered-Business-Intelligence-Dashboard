@@ -43,7 +43,7 @@ import {
   Bookmark,
   Award,
   Briefcase,
-  PresentationChart,
+  Presentation,
   TableProperties,
   ChartNoAxesCombined,
   BarChart4,
@@ -578,7 +578,7 @@ const Index = () => {
                 <div className="flex items-center space-x-6">
                   <div className="flex flex-col items-center space-y-2">
                     <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200 px-5 py-2 text-sm font-bold shadow-lg">
-                      <PresentationChart className="w-4 h-4 mr-2" />
+                      <Presentation className="w-4 h-4 mr-2" />
                       127 Active Reports
                     </Badge>
                     <div className="text-sm text-slate-500 font-medium">Live Updates</div>
@@ -750,7 +750,7 @@ const Index = () => {
                   <div className="flex items-center justify-between mb-10">
                     <div>
                       <h3 className="text-4xl font-bold mb-3 flex items-center">
-                        <PresentationChart className="w-10 h-10 mr-4 text-orange-300" />
+                        <Presentation className="w-10 h-10 mr-4 text-orange-300" />
                         Executive Reporting Command Center
                       </h3>
                       <p className="text-orange-200 text-xl">Real-time business intelligence, executive insights, and strategic decision support</p>
