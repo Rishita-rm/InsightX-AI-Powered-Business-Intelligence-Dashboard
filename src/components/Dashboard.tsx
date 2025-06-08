@@ -1,25 +1,33 @@
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadialBarChart, RadialBar } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Users, DollarSign, Target, Activity, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { TrendingUp, TrendingDown, Users, DollarSign, Target, Activity, ArrowUpRight, ArrowDownRight, Eye, Zap, Clock, Award, Briefcase, Globe, BarChart3, PieChart as PieChartIcon } from "lucide-react";
 
 const Dashboard = () => {
   // Enhanced mock data for demonstration
   const salesData = [
-    { month: 'Jan', sales: 65000, profit: 28000, growth: 12 },
-    { month: 'Feb', sales: 78000, profit: 35000, growth: 18 },
-    { month: 'Mar', sales: 92000, profit: 42000, growth: 15 },
-    { month: 'Apr', sales: 85000, profit: 38000, growth: 8 },
-    { month: 'May', sales: 105000, profit: 52000, growth: 22 },
-    { month: 'Jun', sales: 118000, profit: 61000, growth: 25 },
+    { month: 'Jan', sales: 65000, profit: 28000, growth: 12, customers: 1200 },
+    { month: 'Feb', sales: 78000, profit: 35000, growth: 18, customers: 1400 },
+    { month: 'Mar', sales: 92000, profit: 42000, growth: 15, customers: 1650 },
+    { month: 'Apr', sales: 85000, profit: 38000, growth: 8, customers: 1580 },
+    { month: 'May', sales: 105000, profit: 52000, growth: 22, customers: 1820 },
+    { month: 'Jun', sales: 118000, profit: 61000, growth: 25, customers: 2100 },
   ];
 
   const categoryData = [
-    { name: 'Technology', value: 42, color: 'hsl(var(--chart-primary))' },
-    { name: 'Healthcare', value: 28, color: 'hsl(var(--chart-secondary))' },
-    { name: 'Finance', value: 18, color: 'hsl(var(--chart-accent))' },
-    { name: 'Retail', value: 12, color: 'hsl(var(--chart-warning))' },
+    { name: 'Technology', value: 42, color: '#3b82f6', trend: '+12%' },
+    { name: 'Healthcare', value: 28, color: '#8b5cf6', trend: '+8%' },
+    { name: 'Finance', value: 18, color: '#10b981', trend: '+15%' },
+    { name: 'Retail', value: 12, color: '#f59e0b', trend: '+5%' },
+  ];
+
+  const performanceData = [
+    { name: 'Q1', value: 85, fill: '#3b82f6' },
+    { name: 'Q2', value: 92, fill: '#8b5cf6' },
+    { name: 'Q3', value: 78, fill: '#10b981' },
+    { name: 'Q4', value: 96, fill: '#f59e0b' },
   ];
 
   const metrics = [
@@ -30,7 +38,10 @@ const Dashboard = () => {
       changeValue: "+$284K",
       trend: "up",
       icon: DollarSign,
-      period: "vs last quarter"
+      period: "vs last quarter",
+      bgGradient: "from-blue-500 to-blue-600",
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600"
     },
     {
       title: "Active Customers",
@@ -39,7 +50,10 @@ const Dashboard = () => {
       changeValue: "+956",
       trend: "up",
       icon: Users,
-      period: "vs last month"
+      period: "vs last month",
+      bgGradient: "from-emerald-500 to-emerald-600",
+      iconBg: "bg-emerald-100",
+      iconColor: "text-emerald-600"
     },
     {
       title: "Conversion Rate",
@@ -48,7 +62,10 @@ const Dashboard = () => {
       changeValue: "+0.4pp",
       trend: "up",
       icon: Target,
-      period: "vs last month"
+      period: "vs last month",
+      bgGradient: "from-purple-500 to-purple-600",
+      iconBg: "bg-purple-100",
+      iconColor: "text-purple-600"
     },
     {
       title: "Avg. Session Duration",
@@ -56,31 +73,76 @@ const Dashboard = () => {
       change: "-2.1%",
       changeValue: "-4s",
       trend: "down",
-      icon: Activity,
-      period: "vs last week"
+      icon: Clock,
+      period: "vs last week",
+      bgGradient: "from-amber-500 to-amber-600",
+      iconBg: "bg-amber-100",
+      iconColor: "text-amber-600"
     },
   ];
 
+  const quickActions = [
+    { title: "Generate Report", icon: BarChart3, color: "blue" },
+    { title: "View Analytics", icon: Eye, color: "emerald" },
+    { title: "Export Data", icon: Globe, color: "purple" },
+    { title: "Settings", icon: Target, color: "amber" },
+  ];
+
   const recentActivity = [
-    { action: "New dataset uploaded", time: "2 minutes ago", type: "upload" },
-    { action: "Monthly report generated", time: "1 hour ago", type: "report" },
-    { action: "API integration completed", time: "3 hours ago", type: "integration" },
-    { action: "Dashboard shared with team", time: "5 hours ago", type: "share" },
+    { action: "New dataset uploaded", time: "2 minutes ago", type: "upload", status: "success" },
+    { action: "Monthly report generated", time: "1 hour ago", type: "report", status: "completed" },
+    { action: "API integration completed", time: "3 hours ago", type: "integration", status: "success" },
+    { action: "Dashboard shared with team", time: "5 hours ago", type: "share", status: "pending" },
+    { action: "Data backup completed", time: "1 day ago", type: "backup", status: "success" },
   ];
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      {/* Header Section */}
-      <div className="flex items-center justify-between">
-        <div className="space-y-1">
-          <h1 className="text-4xl font-bold gradient-text">Business Intelligence</h1>
-          <p className="text-lg text-muted-foreground">Real-time insights and analytics dashboard</p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Badge variant="outline" className="text-success border-success/20 bg-success/10">
-            Live Data
-          </Badge>
-          <Badge variant="outline">Last updated: 2 min ago</Badge>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-6 space-y-8">
+      {/* Enhanced Header Section */}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl blur-3xl" />
+        <div className="relative bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <BarChart3 className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+                    Business Intelligence
+                  </h1>
+                  <p className="text-lg text-slate-600 font-medium mt-1">
+                    Advanced analytics and real-time business insights
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex items-center gap-3">
+                <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 px-4 py-2 text-sm font-semibold">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Live Data
+                </Badge>
+                <Badge variant="outline" className="px-4 py-2 text-sm">
+                  Last updated: 2 min ago
+                </Badge>
+              </div>
+              <div className="flex gap-2">
+                {quickActions.map((action, index) => (
+                  <Button
+                    key={index}
+                    size="sm"
+                    variant="outline"
+                    className="bg-white/50 hover:bg-white/80 transition-all duration-300 border-slate-200/60"
+                  >
+                    <action.icon className="w-4 h-4 mr-2" />
+                    {action.title}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -90,38 +152,43 @@ const Dashboard = () => {
           const Icon = metric.icon;
           const isPositive = metric.trend === "up";
           return (
-            <Card key={index} className="relative overflow-hidden transition-all duration-300 hover:shadow-lg border-0 bg-gradient-to-br from-card via-card to-card/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative">
-                <div className="space-y-1">
-                  <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                    {metric.title}
-                  </CardTitle>
-                  <div className="text-3xl font-bold text-foreground">{metric.value}</div>
-                </div>
-                <div className="rounded-full bg-primary/10 p-3">
-                  <Icon className="h-5 w-5 text-primary" />
+            <Card key={index} className="group relative overflow-hidden bg-white/70 backdrop-blur-xl border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+              <div className={`absolute inset-0 bg-gradient-to-br ${metric.bgGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/20 to-transparent rounded-full -translate-y-16 translate-x-16" />
+              <CardHeader className="relative pb-4">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-1">
+                    <CardTitle className="text-sm font-semibold text-slate-600 uppercase tracking-wider">
+                      {metric.title}
+                    </CardTitle>
+                    <div className="text-3xl font-bold text-slate-900">{metric.value}</div>
+                  </div>
+                  <div className={`w-14 h-14 ${metric.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-7 h-7 ${metric.iconColor}`} />
+                  </div>
                 </div>
               </CardHeader>
               <CardContent className="relative">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     {isPositive ? (
-                      <ArrowUpRight className="h-4 w-4 text-success" />
+                      <ArrowUpRight className="w-5 h-5 text-emerald-600" />
                     ) : (
-                      <ArrowDownRight className="h-4 w-4 text-destructive" />
+                      <ArrowDownRight className="w-5 h-5 text-red-500" />
                     )}
-                    <span className={`text-sm font-semibold ${
-                      isPositive ? "text-success" : "text-destructive"
+                    <span className={`text-sm font-bold ${
+                      isPositive ? "text-emerald-600" : "text-red-500"
                     }`}>
                       {metric.change}
                     </span>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-slate-500 font-medium">
                       ({metric.changeValue})
                     </span>
                   </div>
+                  <Badge variant="outline" className="text-xs text-slate-600 bg-slate-50">
+                    {metric.period}
+                  </Badge>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">{metric.period}</p>
               </CardContent>
             </Card>
           );
@@ -129,92 +196,117 @@ const Dashboard = () => {
       </div>
 
       {/* Enhanced Charts Section */}
-      <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-12">
         {/* Main Revenue Chart */}
-        <Card className="lg:col-span-2 border-0 shadow-lg bg-gradient-to-br from-card to-card/80">
-          <CardHeader className="pb-4">
+        <Card className="lg:col-span-8 bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
+          <CardHeader className="pb-6">
             <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="text-xl font-semibold">Revenue Analytics</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground mt-1">
-                  Monthly performance with growth indicators
+              <div className="space-y-2">
+                <CardTitle className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <BarChart3 className="w-5 h-5 text-white" />
+                  </div>
+                  Revenue Analytics
+                </CardTitle>
+                <CardDescription className="text-slate-600 font-medium">
+                  Monthly performance with comprehensive growth indicators and trend analysis
                 </CardDescription>
               </div>
-              <Badge variant="secondary">6 Months</Badge>
+              <div className="flex items-center gap-3">
+                <Badge className="bg-blue-100 text-blue-700 border-blue-200 px-4 py-2 font-semibold">6 Months</Badge>
+                <Button size="sm" variant="outline" className="bg-white/50">
+                  <Eye className="w-4 h-4 mr-2" />
+                  View Details
+                </Button>
+              </div>
             </div>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={350}>
-              <AreaChart data={salesData}>
+            <ResponsiveContainer width="100%" height={400}>
+              <AreaChart data={salesData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                 <defs>
                   <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--chart-primary))" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="hsl(var(--chart-primary))" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4}/>
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.05}/>
                   </linearGradient>
                   <linearGradient id="profitGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--chart-accent))" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="hsl(var(--chart-accent))" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.4}/>
+                    <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0.05}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.6} />
                 <XAxis 
                   dataKey="month" 
-                  stroke="hsl(var(--muted-foreground))"
+                  stroke="#64748b"
                   fontSize={12}
+                  fontWeight={500}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis 
-                  stroke="hsl(var(--muted-foreground))"
+                  stroke="#64748b"
                   fontSize={12}
+                  fontWeight={500}
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(value) => `$${value/1000}K`}
                 />
                 <Tooltip 
                   contentStyle={{
-                    backgroundColor: 'hsl(var(--card))',
-                    border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px',
-                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(226, 232, 240, 0.8)',
+                    borderRadius: '12px',
+                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    backdropFilter: 'blur(10px)'
                   }}
                   formatter={(value, name) => [`$${value.toLocaleString()}`, name === 'sales' ? 'Revenue' : 'Profit']}
                 />
                 <Area
                   type="monotone"
                   dataKey="sales"
-                  stroke="hsl(var(--chart-primary))"
+                  stroke="#3b82f6"
                   strokeWidth={3}
                   fill="url(#salesGradient)"
+                  dot={{ fill: '#3b82f6', strokeWidth: 2, r: 6 }}
+                  activeDot={{ r: 8, fill: '#3b82f6' }}
                 />
                 <Area
                   type="monotone"
                   dataKey="profit"
-                  stroke="hsl(var(--chart-accent))"
+                  stroke="#8b5cf6"
                   strokeWidth={3}
                   fill="url(#profitGradient)"
+                  dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 6 }}
+                  activeDot={{ r: 8, fill: '#8b5cf6' }}
                 />
               </AreaChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        {/* Market Distribution */}
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/80">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">Market Share</CardTitle>
-            <CardDescription>Revenue distribution by sector</CardDescription>
+        {/* Enhanced Market Distribution */}
+        <Card className="lg:col-span-4 bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
+          <CardHeader className="pb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                <PieChartIcon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <CardTitle className="text-xl font-bold text-slate-900">Market Distribution</CardTitle>
+                <CardDescription className="text-slate-600">Revenue by sector</CardDescription>
+              </div>
+            </div>
           </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={280}>
+          <CardContent className="space-y-6">
+            <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie
                   data={categoryData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={60}
-                  outerRadius={100}
-                  paddingAngle={4}
+                  innerRadius={45}
+                  outerRadius={85}
+                  paddingAngle={6}
                   dataKey="value"
                 >
                   {categoryData.map((entry, index) => (
@@ -222,26 +314,32 @@ const Dashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  formatter={(value) => [`${value}%`, 'Share']}
+                  formatter={(value) => [`${value}%`, 'Market Share']}
                   contentStyle={{
-                    backgroundColor: 'hsl(var(--card))',
-                    border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(226, 232, 240, 0.8)',
+                    borderRadius: '8px',
+                    backdropFilter: 'blur(10px)'
                   }}
                 />
               </PieChart>
             </ResponsiveContainer>
-            <div className="mt-4 space-y-2">
+            <div className="space-y-3">
               {categoryData.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
+                <div key={index} className="flex items-center justify-between p-3 rounded-xl bg-slate-50/50 hover:bg-slate-100/50 transition-colors duration-200">
+                  <div className="flex items-center gap-3">
                     <div 
-                      className="w-3 h-3 rounded-full" 
+                      className="w-4 h-4 rounded-full shadow-sm" 
                       style={{ backgroundColor: item.color }}
                     />
-                    <span className="text-sm font-medium">{item.name}</span>
+                    <span className="text-sm font-semibold text-slate-700">{item.name}</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">{item.value}%</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-bold text-slate-900">{item.value}%</span>
+                    <Badge variant="outline" className="text-xs text-emerald-600 bg-emerald-50 border-emerald-200">
+                      {item.trend}
+                    </Badge>
+                  </div>
                 </div>
               ))}
             </div>
@@ -249,93 +347,90 @@ const Dashboard = () => {
         </Card>
       </div>
 
-      {/* Performance Metrics Bar Chart */}
-      <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/80">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="text-xl font-semibold">Monthly Performance Overview</CardTitle>
-              <CardDescription>Comprehensive breakdown of key business metrics</CardDescription>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-2 text-xs">
-                <div className="w-3 h-3 rounded bg-chart-primary" />
-                <span>Revenue</span>
+      {/* Performance Overview and Activity */}
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
+        {/* Quarterly Performance */}
+        <Card className="lg:col-span-1 bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                <Award className="w-5 h-5 text-white" />
               </div>
-              <div className="flex items-center space-x-2 text-xs">
-                <div className="w-3 h-3 rounded bg-chart-accent" />
-                <span>Profit</span>
+              <div>
+                <CardTitle className="text-xl font-bold text-slate-900">Performance</CardTitle>
+                <CardDescription className="text-slate-600">Quarterly overview</CardDescription>
               </div>
             </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={salesData} barGap={10}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
-              <XAxis 
-                dataKey="month" 
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-              />
-              <YAxis 
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-                tickFormatter={(value) => `$${value/1000}K`}
-              />
-              <Tooltip 
-                contentStyle={{
-                  backgroundColor: 'hsl(var(--card))',
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '8px',
-                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
-                }}
-                formatter={(value, name) => [`$${value.toLocaleString()}`, name === 'sales' ? 'Revenue' : 'Profit']}
-              />
-              <Bar 
-                dataKey="sales" 
-                fill="hsl(var(--chart-primary))" 
-                radius={[4, 4, 0, 0]}
-                opacity={0.9}
-              />
-              <Bar 
-                dataKey="profit" 
-                fill="hsl(var(--chart-accent))" 
-                radius={[4, 4, 0, 0]}
-                opacity={0.9}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={200}>
+              <RadialBarChart cx="50%" cy="50%" innerRadius="20%" outerRadius="90%" data={performanceData}>
+                <RadialBar dataKey="value" cornerRadius={10} fill="#8884d8" />
+                <Tooltip 
+                  formatter={(value) => [`${value}%`, 'Performance']}
+                  contentStyle={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(226, 232, 240, 0.8)',
+                    borderRadius: '8px',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                />
+              </RadialBarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
 
-      {/* Recent Activity Panel */}
-      <Card className="border-0 shadow-lg bg-gradient-to-br from-card to-card/80">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold">Recent Activity</CardTitle>
-          <CardDescription>Latest system updates and user actions</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                <div className="flex-1">
-                  <p className="text-sm font-medium">{activity.action}</p>
-                  <p className="text-xs text-muted-foreground">{activity.time}</p>
+        {/* Recent Activity Panel */}
+        <Card className="lg:col-span-2 bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                  <Activity className="w-5 h-5 text-white" />
                 </div>
-                <Badge variant="outline" className="text-xs">
-                  {activity.type}
-                </Badge>
+                <div>
+                  <CardTitle className="text-xl font-bold text-slate-900">Recent Activity</CardTitle>
+                  <CardDescription className="text-slate-600">Latest system updates and user actions</CardDescription>
+                </div>
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              <Button size="sm" variant="outline" className="bg-white/50">
+                View All
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {recentActivity.map((activity, index) => (
+                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50/50 hover:bg-slate-100/50 transition-all duration-200 group">
+                  <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
+                    activity.status === 'success' ? 'bg-emerald-500' : 
+                    activity.status === 'completed' ? 'bg-blue-500' : 
+                    activity.status === 'pending' ? 'bg-amber-500' : 'bg-slate-400'
+                  }`} />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {activity.action}
+                    </p>
+                    <p className="text-xs text-slate-500 font-medium">{activity.time}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge 
+                      variant="outline" 
+                      className={`text-xs capitalize ${
+                        activity.status === 'success' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 
+                        activity.status === 'completed' ? 'bg-blue-50 text-blue-700 border-blue-200' : 
+                        activity.status === 'pending' ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-slate-50 text-slate-700 border-slate-200'
+                      }`}
+                    >
+                      {activity.status}
+                    </Badge>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
