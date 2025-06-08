@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
 import { Upload, FileText, Database, Sparkles, CheckCircle, Brain } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const DataUpload = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
