@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,7 +23,7 @@
     --secondary-foreground: 248 250 252;
 
     --muted: 241 245 249;
-    --muted-foreground: 100 116 139;
+    --muted-foreground: 71 85 105;
 
     --accent: 139 92 246;
     --accent-foreground: 248 250 252;
@@ -105,23 +106,40 @@
     min-height: 100vh;
     background: linear-gradient(135deg, rgb(239, 246, 255) 0%, rgb(219, 234, 254) 50%, rgb(191, 219, 254) 100%);
   }
+
+  /* Ensure text is always visible */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  p, span, div {
+    @apply text-foreground;
+  }
+
+  /* Override any transparent text */
+  .text-transparent {
+    color: hsl(var(--foreground)) !important;
+  }
 }
 
 @layer components {
   .chart-container {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/80 p-6 shadow-lg backdrop-blur-sm;
+    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg backdrop-blur-sm;
   }
   
   .insight-card {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/80 p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
+    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
   }
   
   .metric-card {
-    @apply rounded-xl border-0 bg-gradient-to-br from-card via-card to-card/50 p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden backdrop-blur-sm;
+    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden backdrop-blur-sm;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent font-bold;
+    @apply bg-gradient-to-r from-primary via-primary to-accent bg-clip-text font-bold;
+    color: hsl(var(--primary)) !important;
+    -webkit-text-fill-color: hsl(var(--primary));
   }
   
   .data-grid {
@@ -130,7 +148,7 @@
 
   /* Professional glass morphism effects */
   .glass-card {
-    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl;
+    @apply backdrop-blur-xl bg-card/90 border border-border shadow-2xl text-card-foreground;
   }
 
   /* Enhanced gradients for depth */
@@ -150,16 +168,27 @@
   .smooth-transition {
     @apply transition-all duration-300 ease-in-out;
   }
+
+  /* Ensure muted text is visible */
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text;
+    color: hsl(var(--primary)) !important;
   }
   
   .border-gradient {
     background: linear-gradient(var(--card), var(--card)) padding-box,
                 linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
     border: 1px solid transparent;
+  }
+
+  /* Force visible text for all elements */
+  .force-visible-text * {
+    color: hsl(var(--foreground)) !important;
   }
 }

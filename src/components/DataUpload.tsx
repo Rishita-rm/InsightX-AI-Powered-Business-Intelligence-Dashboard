@@ -1,3 +1,4 @@
+
 import { useState, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -115,9 +116,9 @@ const DataUpload = () => {
   ];
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in force-visible-text">
       <div>
-        <h1 className="text-3xl font-bold gradient-text">Upload Data</h1>
+        <h1 className="text-3xl font-bold text-foreground">Upload Data</h1>
         <p className="text-muted-foreground">Upload your dataset to get started with AI-powered analysis</p>
       </div>
 
@@ -141,7 +142,7 @@ const DataUpload = () => {
                 )}
               </div>
               <div className="text-center">
-                <h3 className="font-medium text-sm">{step.title}</h3>
+                <h3 className="font-medium text-sm text-foreground">{step.title}</h3>
                 <p className="text-xs text-muted-foreground">{step.description}</p>
               </div>
               {index < uploadSteps.length - 1 && (
@@ -156,11 +157,11 @@ const DataUpload = () => {
         {/* File Upload */}
         <Card className="insight-card">
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
+            <CardTitle className="flex items-center space-x-2 text-card-foreground">
               <Upload className="h-5 w-5" />
               <span>File Upload</span>
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-muted-foreground">
               Upload CSV, Excel, or JSON files up to 50MB
             </CardDescription>
           </CardHeader>
@@ -168,7 +169,7 @@ const DataUpload = () => {
             <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary/50 transition-colors">
               <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
               <div className="space-y-2">
-                <Label htmlFor="file-upload" className="cursor-pointer">
+                <Label htmlFor="file-upload" className="cursor-pointer text-foreground">
                   <span className="text-primary hover:text-primary/80">Choose a file</span> or drag and drop
                 </Label>
                 <Input
@@ -187,8 +188,8 @@ const DataUpload = () => {
             {uploadedFile && (
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
-                  <FileText className="h-4 w-4" />
-                  <span className="text-sm font-medium">{uploadedFile.name}</span>
+                  <FileText className="h-4 w-4 text-foreground" />
+                  <span className="text-sm font-medium text-foreground">{uploadedFile.name}</span>
                 </div>
                 {isProcessing && (
                   <div className="space-y-2">
@@ -204,20 +205,20 @@ const DataUpload = () => {
         {/* AI Insights Preview */}
         <Card className="insight-card">
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
+            <CardTitle className="flex items-center space-x-2 text-card-foreground">
               <Sparkles className="h-5 w-5" />
               <span>AI Insights Preview</span>
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-muted-foreground">
               Get instant AI-powered insights from your uploaded data
             </CardDescription>
           </CardHeader>
           <CardContent>
             {aiInsights ? (
               <div className="space-y-3">
-                <div className="p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border">
-                  <h4 className="font-semibold text-sm mb-2">🤖 AI Analysis:</h4>
-                  <p className="text-sm whitespace-pre-wrap">{aiInsights}</p>
+                <div className="p-4 bg-muted rounded-lg border">
+                  <h4 className="font-semibold text-sm mb-2 text-foreground">🤖 AI Analysis:</h4>
+                  <p className="text-sm whitespace-pre-wrap text-foreground">{aiInsights}</p>
                 </div>
                 <Button variant="outline" className="w-full">
                   <Brain className="h-4 w-4 mr-2" />
@@ -244,25 +245,25 @@ const DataUpload = () => {
       {/* API Integration */}
       <Card className="insight-card">
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
+          <CardTitle className="flex items-center space-x-2 text-card-foreground">
             <Database className="h-5 w-5" />
             <span>API Integration</span>
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-muted-foreground">
             Connect to external data sources via API
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="api-url">API Endpoint URL</Label>
+            <Label htmlFor="api-url" className="text-foreground">API Endpoint URL</Label>
             <Input id="api-url" placeholder="https://api.example.com/data" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="api-key">API Key (Optional)</Label>
+            <Label htmlFor="api-key" className="text-foreground">API Key (Optional)</Label>
             <Input id="api-key" type="password" placeholder="Your API key" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="api-headers">Custom Headers (JSON)</Label>
+            <Label htmlFor="api-headers" className="text-foreground">Custom Headers (JSON)</Label>
             <Textarea 
               id="api-headers" 
               placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'
@@ -279,8 +280,8 @@ const DataUpload = () => {
       {/* Recent Uploads with AI Status */}
       <Card className="insight-card">
         <CardHeader>
-          <CardTitle>Recent Uploads</CardTitle>
-          <CardDescription>Your recently processed datasets with AI analysis status</CardDescription>
+          <CardTitle className="text-card-foreground">Recent Uploads</CardTitle>
+          <CardDescription className="text-muted-foreground">Your recently processed datasets with AI analysis status</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -293,7 +294,7 @@ const DataUpload = () => {
                 <div className="flex items-center space-x-3">
                   <FileText className="h-8 w-8 text-muted-foreground" />
                   <div className="flex-1">
-                    <p className="font-medium">{file.name}</p>
+                    <p className="font-medium text-foreground">{file.name}</p>
                     <p className="text-sm text-muted-foreground">{file.size} • {file.time}</p>
                     {file.insights && (
                       <p className="text-xs text-primary mt-1">💡 {file.insights}</p>
