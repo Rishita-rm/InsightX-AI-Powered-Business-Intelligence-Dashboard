@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Dashboard from '@/components/Dashboard';
 import DataUpload from '@/components/DataUpload';
+import DataAnalytics from '@/components/DataAnalytics';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -13,6 +13,8 @@ const Index = () => {
         return <Dashboard />;
       case 'upload':
         return <DataUpload />;
+      case 'analytics':
+        return <DataAnalytics />;
       case 'datasets':
         return (
           <div className="animate-fade-in">
