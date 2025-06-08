@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { Upload, FileText, Database, Sparkles, CheckCircle, Brain } from "lucide-react";
+import { Upload, FileText, Database, Sparkles, CheckCircle, Brain, Cloud, Zap, TrendingUp, Shield } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -100,77 +100,121 @@ const DataUpload = () => {
       title: "Upload Your Data",
       description: "Support for CSV, Excel, and JSON formats",
       active: !uploadedFile,
+      color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Sparkles,
       title: "AI Processing",
       description: "Automated data cleaning and validation",
       active: isProcessing,
+      color: "from-purple-500 to-pink-500"
     },
     {
-      icon: Database,
+      icon: TrendingUp,
       title: "Generate Insights",
       description: "Create charts and discover patterns",
       active: analysisComplete,
+      color: "from-emerald-500 to-teal-500"
     },
   ];
 
   return (
-    <div className="space-y-6 animate-fade-in force-visible-text">
-      <div>
-        <h1 className="text-3xl font-bold text-foreground">Upload Data</h1>
-        <p className="text-muted-foreground">Upload your dataset to get started with AI-powered analysis</p>
-      </div>
-
-      {/* Process Steps */}
-      <div className="flex justify-between items-center mb-8">
-        {uploadSteps.map((step, index) => {
-          const Icon = step.icon;
-          return (
-            <div key={index} className="flex flex-col items-center space-y-2 flex-1">
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-colors ${
-                step.active 
-                  ? 'bg-primary border-primary text-primary-foreground' 
-                  : analysisComplete || index === 0
-                  ? 'bg-success border-success text-background'
-                  : 'border-muted bg-muted'
-              }`}>
-                {analysisComplete && index < 2 ? (
-                  <CheckCircle className="h-6 w-6" />
-                ) : (
-                  <Icon className="h-6 w-6" />
-                )}
-              </div>
-              <div className="text-center">
-                <h3 className="font-medium text-sm text-foreground">{step.title}</h3>
-                <p className="text-xs text-muted-foreground">{step.description}</p>
-              </div>
-              {index < uploadSteps.length - 1 && (
-                <div className="hidden md:block w-full h-px bg-border absolute top-6 left-1/2 transform translate-x-1/2" />
-              )}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-6 space-y-8">
+      {/* Enhanced Header */}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl blur-3xl" />
+        <div className="relative bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg mb-4">
+              <Cloud className="w-10 h-10 text-white" />
             </div>
-          );
-        })}
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Data Upload Center
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Transform your raw data into actionable insights with our AI-powered analytics platform. 
+              Upload, process, and analyze your datasets with enterprise-grade security.
+            </p>
+            <div className="flex items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Shield className="w-4 h-4 text-emerald-500" />
+                <span>Enterprise Security</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Zap className="w-4 h-4 text-yellow-500" />
+                <span>AI-Powered</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <TrendingUp className="w-4 h-4 text-blue-500" />
+                <span>Real-time Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        {/* File Upload */}
-        <Card className="insight-card">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-card-foreground">
-              <Upload className="h-5 w-5" />
-              <span>File Upload</span>
+      {/* Enhanced Process Steps */}
+      <div className="relative">
+        <div className="flex justify-between items-center mb-8 relative">
+          {/* Connection Lines */}
+          <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-border via-primary/30 to-border -z-10" />
+          
+          {uploadSteps.map((step, index) => {
+            const Icon = step.icon;
+            const isActive = step.active;
+            const isComplete = analysisComplete && index < 2;
+            
+            return (
+              <div key={index} className="flex flex-col items-center space-y-3 flex-1 relative z-10">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 transform ${
+                  isActive 
+                    ? `bg-gradient-to-br ${step.color} border-transparent text-white shadow-lg scale-110` 
+                    : isComplete
+                    ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg'
+                    : 'border-border bg-background hover:shadow-md'
+                }`}>
+                  {isComplete ? (
+                    <CheckCircle className="h-7 w-7" />
+                  ) : (
+                    <Icon className="h-7 w-7" />
+                  )}
+                </div>
+                <div className="text-center max-w-32">
+                  <h3 className="font-semibold text-sm text-foreground mb-1">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-tight">{step.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Enhanced File Upload */}
+        <Card className="group hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border-white/20 overflow-hidden">
+          <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 pb-4">
+            <CardTitle className="flex items-center space-x-3 text-xl">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                <Upload className="h-5 w-5 text-white" />
+              </div>
+              <span>Smart File Upload</span>
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
-              Upload CSV, Excel, or JSON files up to 50MB
+            <CardDescription className="text-base">
+              Drag & drop or browse files • Multiple formats supported • Up to 50MB
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary/50 transition-colors">
-              <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <div className="space-y-2">
-                <Label htmlFor="file-upload" className="cursor-pointer text-foreground">
-                  <span className="text-primary hover:text-primary/80">Choose a file</span> or drag and drop
+          <CardContent className="p-6 space-y-6">
+            <div className="relative border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary/50 transition-all duration-300 hover:bg-primary/5 group-hover:shadow-inner">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center">
+                  <FileText className="h-8 w-8 text-blue-600" />
+                </div>
+                <Label htmlFor="file-upload" className="cursor-pointer">
+                  <span className="text-lg font-semibold text-primary hover:text-primary/80 transition-colors">
+                    Choose files
+                  </span>
+                  <span className="text-muted-foreground"> or drag and drop here</span>
                 </Label>
                 <Input
                   id="file-upload"
@@ -179,22 +223,36 @@ const DataUpload = () => {
                   onChange={handleFileUpload}
                   className="hidden"
                 />
-                <p className="text-xs text-muted-foreground">
-                  Supported formats: CSV, XLSX, XLS, JSON
-                </p>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  {['CSV', 'XLSX', 'XLS', 'JSON'].map((format) => (
+                    <span key={format} className="px-3 py-1 bg-muted rounded-full text-xs font-medium">
+                      {format}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
             {uploadedFile && (
-              <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <FileText className="h-4 w-4 text-foreground" />
-                  <span className="text-sm font-medium text-foreground">{uploadedFile.name}</span>
+              <div className="space-y-4 animate-fade-in">
+                <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border border-emerald-200">
+                  <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <FileText className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-medium text-foreground">{uploadedFile.name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB
+                    </p>
+                  </div>
                 </div>
                 {isProcessing && (
-                  <div className="space-y-2">
-                    <Progress value={uploadProgress} className="w-full" />
-                    <p className="text-xs text-muted-foreground">Processing... {uploadProgress}%</p>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium">Processing...</span>
+                      <span className="text-sm text-muted-foreground">{uploadProgress}%</span>
+                    </div>
+                    <Progress value={uploadProgress} className="h-2" />
                   </div>
                 )}
               </div>
@@ -202,115 +260,177 @@ const DataUpload = () => {
           </CardContent>
         </Card>
 
-        {/* AI Insights Preview */}
-        <Card className="insight-card">
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-card-foreground">
-              <Sparkles className="h-5 w-5" />
-              <span>AI Insights Preview</span>
+        {/* Enhanced AI Insights */}
+        <Card className="group hover:shadow-2xl transition-all duration-300 bg-white/70 backdrop-blur-xl border-white/20 overflow-hidden">
+          <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50 pb-4">
+            <CardTitle className="flex items-center space-x-3 text-xl">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <Sparkles className="h-5 w-5 text-white" />
+              </div>
+              <span>AI Insights Engine</span>
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
-              Get instant AI-powered insights from your uploaded data
+            <CardDescription className="text-base">
+              Advanced machine learning analysis of your data patterns and quality
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-6">
             {aiInsights ? (
-              <div className="space-y-3">
-                <div className="p-4 bg-muted rounded-lg border">
-                  <h4 className="font-semibold text-sm mb-2 text-foreground">🤖 AI Analysis:</h4>
-                  <p className="text-sm whitespace-pre-wrap text-foreground">{aiInsights}</p>
+              <div className="space-y-4 animate-fade-in">
+                <div className="p-5 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl border border-violet-200">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Brain className="h-5 w-5 text-violet-600" />
+                    <h4 className="font-semibold text-violet-900">AI Analysis Results</h4>
+                  </div>
+                  <p className="text-sm text-violet-800 whitespace-pre-wrap leading-relaxed">{aiInsights}</p>
                 </div>
-                <Button variant="outline" className="w-full">
-                  <Brain className="h-4 w-4 mr-2" />
-                  View Full Analytics
+                <Button className="w-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white shadow-lg">
+                  <TrendingUp className="h-4 w-4 mr-2" />
+                  View Detailed Analytics
                 </Button>
               </div>
             ) : uploadedFile ? (
-              <div className="text-center py-8">
-                <Sparkles className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">
-                  {isProcessing ? "AI is analyzing your data..." : "Ready for AI analysis"}
-                </p>
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center animate-pulse">
+                  <Sparkles className="h-8 w-8 text-purple-600" />
+                </div>
+                <div className="space-y-2">
+                  <p className="font-medium text-foreground">
+                    {isProcessing ? "AI analyzing your data..." : "Ready for AI analysis"}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Our AI will identify patterns, anomalies, and insights
+                  </p>
+                </div>
               </div>
             ) : (
-              <div className="text-center py-8">
-                <Database className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Upload a file to see AI insights</p>
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-slate-100 to-gray-100 rounded-xl flex items-center justify-center">
+                  <Database className="h-8 w-8 text-slate-400" />
+                </div>
+                <div className="space-y-2">
+                  <p className="font-medium text-muted-foreground">Upload data to begin</p>
+                  <p className="text-sm text-muted-foreground">
+                    Get instant AI-powered insights and recommendations
+                  </p>
+                </div>
               </div>
             )}
           </CardContent>
         </Card>
       </div>
 
-      {/* API Integration */}
-      <Card className="insight-card">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-card-foreground">
-            <Database className="h-5 w-5" />
-            <span>API Integration</span>
+      {/* Enhanced API Integration */}
+      <Card className="bg-white/70 backdrop-blur-xl border-white/20 shadow-xl overflow-hidden">
+        <CardHeader className="bg-gradient-to-r from-cyan-50 to-blue-50 pb-4">
+          <CardTitle className="flex items-center space-x-3 text-xl">
+            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+              <Database className="h-5 w-5 text-white" />
+            </div>
+            <span>API Data Integration</span>
           </CardTitle>
-          <CardDescription className="text-muted-foreground">
-            Connect to external data sources via API
+          <CardDescription className="text-base">
+            Connect to external data sources and APIs for real-time data synchronization
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="api-url" className="text-foreground">API Endpoint URL</Label>
-            <Input id="api-url" placeholder="https://api.example.com/data" />
+        <CardContent className="p-6 space-y-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="api-url" className="text-sm font-medium">API Endpoint URL</Label>
+                <Input 
+                  id="api-url" 
+                  placeholder="https://api.example.com/data" 
+                  className="bg-white/50 border-white/20"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="api-key" className="text-sm font-medium">API Key (Optional)</Label>
+                <Input 
+                  id="api-key" 
+                  type="password" 
+                  placeholder="Your API key" 
+                  className="bg-white/50 border-white/20"
+                />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="api-headers" className="text-sm font-medium">Custom Headers (JSON)</Label>
+                <Textarea 
+                  id="api-headers" 
+                  placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'
+                  className="min-h-[120px] bg-white/50 border-white/20"
+                />
+              </div>
+            </div>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="api-key" className="text-foreground">API Key (Optional)</Label>
-            <Input id="api-key" type="password" placeholder="Your API key" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="api-headers" className="text-foreground">Custom Headers (JSON)</Label>
-            <Textarea 
-              id="api-headers" 
-              placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'
-              className="min-h-[80px]"
-            />
-          </div>
-          <Button className="w-full" variant="outline">
+          <Button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white shadow-lg">
             <Database className="h-4 w-4 mr-2" />
-            Connect API
+            Connect API Endpoint
           </Button>
         </CardContent>
       </Card>
 
-      {/* Recent Uploads with AI Status */}
-      <Card className="insight-card">
+      {/* Enhanced Recent Uploads */}
+      <Card className="bg-white/70 backdrop-blur-xl border-white/20 shadow-xl">
         <CardHeader>
-          <CardTitle className="text-card-foreground">Recent Uploads</CardTitle>
-          <CardDescription className="text-muted-foreground">Your recently processed datasets with AI analysis status</CardDescription>
+          <CardTitle className="text-xl">Recent Data Processing</CardTitle>
+          <CardDescription className="text-base">Your recently processed datasets with AI analysis status</CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
+        <CardContent className="p-6">
+          <div className="space-y-4">
             {[
-              { name: "sales_data_2024.csv", size: "2.3 MB", status: "AI Analyzed", insights: "Strong Q3 growth, seasonal patterns detected", time: "2 hours ago" },
-              { name: "customer_analytics.xlsx", size: "5.1 MB", status: "Processing", insights: "Analysis in progress...", time: "1 day ago" },
-              { name: "marketing_metrics.json", size: "890 KB", status: "AI Analyzed", insights: "High conversion in digital channels", time: "3 days ago" },
+              { 
+                name: "sales_data_2024.csv", 
+                size: "2.3 MB", 
+                status: "AI Analyzed", 
+                insights: "Strong Q3 growth patterns detected • 23% revenue increase", 
+                time: "2 hours ago",
+                statusColor: "emerald"
+              },
+              { 
+                name: "customer_analytics.xlsx", 
+                size: "5.1 MB", 
+                status: "Processing", 
+                insights: "Analysis in progress... ETA 3 minutes", 
+                time: "1 day ago",
+                statusColor: "amber"
+              },
+              { 
+                name: "marketing_metrics.json", 
+                size: "890 KB", 
+                status: "AI Analyzed", 
+                insights: "High conversion in digital channels • ROI improvement", 
+                time: "3 days ago",
+                statusColor: "emerald"
+              },
             ].map((file, index) => (
-              <div key={index} className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors">
-                <div className="flex items-center space-x-3">
-                  <FileText className="h-8 w-8 text-muted-foreground" />
-                  <div className="flex-1">
-                    <p className="font-medium text-foreground">{file.name}</p>
-                    <p className="text-sm text-muted-foreground">{file.size} • {file.time}</p>
-                    {file.insights && (
-                      <p className="text-xs text-primary mt-1">💡 {file.insights}</p>
-                    )}
+              <div key={index} className="group p-5 border rounded-xl hover:bg-muted/30 transition-all duration-200 hover:shadow-md">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start space-x-4 flex-1">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:shadow-md transition-shadow">
+                      <FileText className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <p className="font-semibold text-foreground">{file.name}</p>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          file.statusColor === "emerald" 
+                            ? "bg-emerald-100 text-emerald-700" 
+                            : "bg-amber-100 text-amber-700"
+                        }`}>
+                          {file.status}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{file.size} • {file.time}</p>
+                      <div className="flex items-center gap-2">
+                        <Brain className="h-4 w-4 text-violet-500" />
+                        <p className="text-sm text-violet-700 font-medium">{file.insights}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    file.status === "AI Analyzed" 
-                      ? "bg-success/10 text-success" 
-                      : "bg-warning/10 text-warning"
-                  }`}>
-                    {file.status}
-                  </span>
-                  <Button size="sm" variant="ghost">
-                    View
+                  <Button size="sm" variant="ghost" className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Details
                   </Button>
                 </div>
               </div>
