@@ -20,11 +20,21 @@ const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
 
   return (
     <div className="flex h-screen w-64 flex-col bg-sidebar border-r border-sidebar-border">
-      <div className="flex items-center space-x-2 p-6 border-b border-sidebar-border">
-        <BarChart3 className="h-8 w-8 text-sidebar-primary" />
-        <div>
-          <h1 className="text-xl font-bold text-sidebar-foreground">InsightX</h1>
-          <p className="text-sm text-sidebar-foreground/70">AI-Powered BI</p>
+      <div className="flex items-center space-x-3 p-6 border-b border-sidebar-border bg-gradient-to-r from-sidebar-primary/10 to-accent/10">
+        <div className="relative">
+          <BarChart3 className="h-10 w-10 text-sidebar-primary drop-shadow-sm" />
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-center space-x-1">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-sidebar-primary to-accent bg-clip-text text-transparent tracking-tight">
+              Insight
+            </h1>
+            <span className="text-2xl font-bold text-accent">X</span>
+          </div>
+          <p className="text-xs text-sidebar-foreground/70 font-medium tracking-wide uppercase">
+            AI-Powered BI
+          </p>
         </div>
       </div>
       
