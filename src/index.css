@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional BI Dashboard Design System */
+/* Revolutionary BI Dashboard Design System */
 
 @layer base {
   :root {
-    --background: 239 246 255;
+    --background: 248 250 252;
     --foreground: 15 23 42;
 
     --card: 255 255 255;
@@ -54,6 +54,15 @@
     --chart-danger: 239 68 68;
     --success: 34 197 94;
     --warning: 245 158 11;
+    
+    /* Advanced shadow system */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-3xl: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
   }
 
   .dark {
@@ -104,91 +113,226 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     min-height: 100vh;
-    background: linear-gradient(135deg, rgb(239, 246, 255) 0%, rgb(219, 234, 254) 50%, rgb(191, 219, 254) 100%);
+    background: linear-gradient(135deg, 
+      rgb(248, 250, 252) 0%, 
+      rgb(241, 245, 249) 25%, 
+      rgb(226, 232, 240) 50%, 
+      rgb(203, 213, 225) 75%, 
+      rgb(148, 163, 184) 100%);
+    background-attachment: fixed;
   }
 
-  /* Ensure text is always visible */
+  /* Enhanced text visibility */
   h1, h2, h3, h4, h5, h6 {
     @apply text-foreground;
     color: hsl(var(--foreground)) !important;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 
   p, span, div {
     @apply text-foreground;
   }
 
-  /* Override any transparent text */
-  .text-transparent {
-    color: hsl(var(--foreground)) !important;
+  /* Professional scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
+    opacity: 0.8;
   }
 }
 
 @layer components {
-  .chart-container {
-    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg backdrop-blur-sm;
-  }
-  
-  .insight-card {
-    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
-  }
-  
-  .metric-card {
-    @apply rounded-xl border bg-card text-card-foreground p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden backdrop-blur-sm;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary to-accent bg-clip-text font-bold;
-    color: hsl(var(--primary)) !important;
-    -webkit-text-fill-color: hsl(var(--primary));
-  }
-  
-  .data-grid {
-    @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
-  }
-
-  /* Professional glass morphism effects */
+  /* Enhanced glass morphism components */
   .glass-card {
-    @apply backdrop-blur-xl bg-card/90 border border-border shadow-2xl text-card-foreground;
-  }
-
-  /* Enhanced gradients for depth */
-  .premium-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-  }
-
-  /* Professional shadows */
-  .enterprise-shadow {
+    @apply backdrop-blur-2xl bg-white/80 border border-white/30 shadow-2xl text-card-foreground;
     box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
       0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   }
 
-  /* Smooth animations for professional feel */
-  .smooth-transition {
-    @apply transition-all duration-300 ease-in-out;
+  .glass-sidebar {
+    @apply backdrop-blur-2xl bg-slate-900/95 border border-slate-700/50 shadow-2xl;
   }
 
-  /* Ensure muted text is visible */
-  .text-muted-foreground {
-    color: hsl(var(--muted-foreground)) !important;
+  /* Professional metric cards */
+  .metric-card {
+    @apply rounded-2xl border bg-white/80 backdrop-blur-2xl border-white/30 p-6 shadow-2xl hover:shadow-3xl transition-all duration-700 relative overflow-hidden group;
   }
-}
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text;
-    color: hsl(var(--primary)) !important;
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
   }
-  
-  .border-gradient {
-    background: linear-gradient(var(--card), var(--card)) padding-box,
-                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
-    border: 1px solid transparent;
+
+  /* Chart containers with enhanced styling */
+  .chart-container {
+    @apply rounded-2xl border bg-white/80 backdrop-blur-2xl border-white/30 p-6 shadow-2xl hover:shadow-3xl transition-all duration-500;
+  }
+
+  /* Enhanced gradients */
+  .premium-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 50%, 
+      hsl(var(--success)) 100%);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(139, 92, 246, 0.1) 50%,
+      rgba(16, 185, 129, 0.1) 100%);
+  }
+
+  /* Professional animations */
+  .smooth-hover {
+    @apply transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  .scale-hover {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+
+  /* Text gradients */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent font-bold;
+  }
+
+  .hero-text {
+    @apply bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent font-bold;
+  }
+
+  /* Enhanced shadows */
+  .shadow-3xl {
+    box-shadow: var(--shadow-3xl);
   }
 
   /* Force visible text for all elements */
   .force-visible-text * {
     color: hsl(var(--foreground)) !important;
   }
+
+  /* Professional button styles */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300;
+  }
+
+  /* Enhanced border gradients */
+  .border-gradient {
+    background: linear-gradient(var(--card), var(--card)) padding-box,
+                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
+    border: 1px solid transparent;
+  }
+
+  /* Professional glow effects */
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+}
+
+@layer utilities {
+  /* Advanced text utilities */
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent;
+  }
+
+  /* Professional spacing */
+  .section-padding {
+    @apply px-6 py-8 lg:px-8 lg:py-12;
+  }
+
+  /* Enhanced grid layouts */
+  .dashboard-grid {
+    @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .chart-grid {
+    @apply grid gap-8 grid-cols-1 lg:grid-cols-12;
+  }
+}
+
+/* Professional animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Professional focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Enhanced muted text visibility */
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground)) !important;
+  font-weight: 500;
 }
