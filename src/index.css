@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -169,7 +170,7 @@
 
   /* Professional metric cards */
   .metric-card {
-    @apply rounded-2xl border bg-white/80 backdrop-blur-2xl border-white/30 p-6 shadow-2xl hover:shadow-3xl transition-all duration-700 relative overflow-hidden;
+    @apply rounded-2xl border bg-white/80 backdrop-blur-2xl border-white/30 p-6 shadow-2xl hover:shadow-3xl transition-all duration-700 relative overflow-hidden group;
   }
 
   .metric-card::before {
