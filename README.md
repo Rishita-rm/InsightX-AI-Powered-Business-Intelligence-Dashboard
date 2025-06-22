@@ -1,24 +1,34 @@
-# Welcome to your Lovable project
+# 📊 InsightX: AI-Powered Business Intelligence Dashboard
+
+[![Lovable Deploy](https://img.shields.io/badge/Deployed%20on-Lovable-blueviolet)](https://lovable.dev/projects/72bc5529-ffa5-4203-b8b2-dc08be9f57d7)
+[![Tech Stack](https://img.shields.io/badge/Stack-Full--Stack%20%7C%20AI%20%7C%20ML%20%7C%20BI-blue)](#)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Rishita-rm/InsightX-AI-Powered-Business-Intelligence-Dashboard)](#)
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/72bc5529-ffa5-4203-b8b2-dc08be9f57d7
+🚀 Live Demo: [InsightX on Lovable](https://lovable.dev/projects/72bc5529-ffa5-4203-b8b2-dc08be9f57d7)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🧩 What is InsightX?
 
-**Use Lovable**
+InsightX is an AI-powered business intelligence dashboard that allows users to upload datasets, clean them intelligently, generate insights automatically using GPT, and interactively explore their data — all in one modern full-stack web app.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/72bc5529-ffa5-4203-b8b2-dc08be9f57d7) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 💡 Why InsightX?
 
-**Use your preferred IDE**
+> “Small business owners, analysts, or anyone with data can struggle to make sense of CSV files or raw tables. InsightX removes the guesswork by letting AI instantly show you trends, top performers, predictions, and even answer natural language questions — just like a data scientist would.”
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+With InsightX, anyone can:
+- 📤 Upload a CSV or Excel file
+- 🧹 Automatically clean and preview data
+- 🤖 Get AI-generated summaries and charts
+- 🔍 Filter, query, and explore interactively
+- 📈 Predict trends (churn, demand, etc.)
+- 🧠 Ask questions like “Who are my top customers?”
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
 Follow these steps:
 
@@ -35,39 +45,62 @@ npm i
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
+---
 
-**Edit a file directly in GitHub**
+## ⚙️ Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Layer     | Tech Used                                       |
+|-----------|-------------------------------------------------|
+| Frontend  | React + Tailwind CSS + ShadCN-UI + Vite         |
+| Backend   | FastAPI or Flask                                |
+| AI/ML     | OpenAI GPT-4, Scikit-learn, LangChain (optional)|
+| Data      | Pandas, SQL (Postgres/SQLite)                   |
+| Deployment| Lovable, Vercel, Render, Docker (optional)      |
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🚀 Features
 
-## What technologies are used for this project?
+### ✅ 1. Upload & Auto-Clean Data
+- Upload CSV/Excel files
+- AI handles nulls, renames columns, detects types
+- Preview cleaned dataset
 
-This project is built with:
+### ✅ 2. AI-Generated Insights
+- “What are the top trends?”
+- “Which regions are underperforming?”
+- “Who are my best customers?”
+- GPT generates answers and charts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### ✅ 3. Interactive Dashboard
+- Filters: Date, Region, Category
+- KPIs: Revenue, Sales, Customer Segments
+- Optional Cohort or Funnel view
 
-## How can I deploy this project?
+### ✅ 4. Predictive Analytics (Optional)
+- Select target (e.g. churn)
+- Run ML model (sklearn)
+- Download results as CSV
 
-Simply open [Lovable](https://lovable.dev/projects/72bc5529-ffa5-4203-b8b2-dc08be9f57d7) and click on Share -> Publish.
+### ✅ 5. Chat With Your Data
+- Type queries:  
+  “Show monthly sales trend”  
+  “Least profitable category last quarter?”  
+- Powered by LangChain or PandasAI
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🛠️ Local Development
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+git clone <YOUR_REPO_URL>
+cd InsightX-AI-Powered-Business-Intelligence-Dashboard
+npm install
+npm run dev
+```
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🧠 Future Add-ons
+- User Auth (Supabase/Firebase)
+- Scheduled PDF Reports (Celery + WeasyPrint)
+- Feedback Button (Google Form)
