@@ -1,42 +1,29 @@
-// src/components/ThemeToggle.tsx
-
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
-import { Button } from "./ui/button";
+import { Moon, Sun } from "lucide-react";
 
-const ThemeToggle = () => {
+export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
+    const root = window.document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
     }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
-    document.documentElement.classList.toggle("dark", newTheme);
-  };
+  }, [isDark]);
 
   return (
-    <Button variant="outline" onClick={toggleTheme}>
+    <button
+      onClick={() => setIsDark(!isDark)}
+      className="fixed bottom-6 right-6 bg-white dark:bg-gray-800 p-3 rounded-full shadow-xl hover:scale-105 transition-transform"
+      aria-label="Toggle Theme"
+    >
       {isDark ? (
-        <>
-          <Sun className="w-4 h-4 mr-2" />
-          Light
-        </>
+        <Sun className="w-5 h-5 text-yellow-400" />
       ) : (
-        <>
-          <Moon className="w-4 h-4 mr-2" />
-          Dark
-        </>
+        <Moon className="w-5 h-5 text-gray-700" />
       )}
-    </Button>
+    </button>
   );
-};
-
-export default ThemeToggle;
+}
