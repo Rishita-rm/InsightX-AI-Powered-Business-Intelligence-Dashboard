@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { 
-  Settings, 
-  Shield, 
-  Users, 
-  Database, 
-  Bell, 
-  Cpu, 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Settings,
+  Shield,
+  Users,
+  Database,
+  Bell,
+  Cpu,
   Cloud,
   Lock,
   Key,
@@ -58,112 +70,112 @@ import {
   Camera,
   Star,
   ChevronRight,
-  Verified
+  Verified,
 } from "lucide-react";
 
 const EnterpriseSettings = () => {
-  const [activeCategory, setActiveCategory] = useState('core');
+  const [activeCategory, setActiveCategory] = useState("core");
 
   const settingsCategories = [
-    { 
-      id: 'core', 
-      label: 'Core System', 
-      icon: Settings, 
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-gradient-to-br from-blue-50 to-cyan-50',
-      borderColor: 'border-blue-200',
-      description: 'Essential system configuration'
+    {
+      id: "core",
+      label: "Core System",
+      icon: Settings,
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
+      borderColor: "border-blue-200",
+      description: "Essential system configuration",
     },
-    { 
-      id: 'security', 
-      label: 'Security & Compliance', 
-      icon: Shield, 
-      color: 'from-red-500 to-rose-500',
-      bgColor: 'bg-gradient-to-br from-red-50 to-rose-50',
-      borderColor: 'border-red-200',
-      description: 'Advanced security controls'
+    {
+      id: "security",
+      label: "Security & Compliance",
+      icon: Shield,
+      color: "from-red-500 to-rose-500",
+      bgColor: "bg-gradient-to-br from-red-50 to-rose-50",
+      borderColor: "border-red-200",
+      description: "Advanced security controls",
     },
-    { 
-      id: 'integration', 
-      label: 'Integration & API', 
-      icon: Webhook, 
-      color: 'from-purple-500 to-violet-500',
-      bgColor: 'bg-gradient-to-br from-purple-50 to-violet-50',
-      borderColor: 'border-purple-200',
-      description: 'External connections'
+    {
+      id: "integration",
+      label: "Integration & API",
+      icon: Webhook,
+      color: "from-purple-500 to-violet-500",
+      bgColor: "bg-gradient-to-br from-purple-50 to-violet-50",
+      borderColor: "border-purple-200",
+      description: "External connections",
     },
-    { 
-      id: 'infrastructure', 
-      label: 'Infrastructure', 
-      icon: Server, 
-      color: 'from-green-500 to-emerald-500',
-      bgColor: 'bg-gradient-to-br from-green-50 to-emerald-50',
-      borderColor: 'border-green-200',
-      description: 'Performance & scaling'
+    {
+      id: "infrastructure",
+      label: "Infrastructure",
+      icon: Server,
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
+      borderColor: "border-green-200",
+      description: "Performance & scaling",
     },
-    { 
-      id: 'customization', 
-      label: 'Customization', 
-      icon: Palette, 
-      color: 'from-orange-500 to-amber-500',
-      bgColor: 'bg-gradient-to-br from-orange-50 to-amber-50',
-      borderColor: 'border-orange-200',
-      description: 'Branding & themes'
+    {
+      id: "customization",
+      label: "Customization",
+      icon: Palette,
+      color: "from-orange-500 to-amber-500",
+      bgColor: "bg-gradient-to-br from-orange-50 to-amber-50",
+      borderColor: "border-orange-200",
+      description: "Branding & themes",
     },
-    { 
-      id: 'data', 
-      label: 'Data Management', 
-      icon: Database, 
-      color: 'from-indigo-500 to-blue-500',
-      bgColor: 'bg-gradient-to-br from-indigo-50 to-blue-50',
-      borderColor: 'border-indigo-200',
-      description: 'Data governance'
+    {
+      id: "data",
+      label: "Data Management",
+      icon: Database,
+      color: "from-indigo-500 to-blue-500",
+      bgColor: "bg-gradient-to-br from-indigo-50 to-blue-50",
+      borderColor: "border-indigo-200",
+      description: "Data governance",
     },
-    { 
-      id: 'notifications', 
-      label: 'Notifications', 
-      icon: Bell, 
-      color: 'from-yellow-500 to-orange-500',
-      bgColor: 'bg-gradient-to-br from-yellow-50 to-orange-50',
-      borderColor: 'border-yellow-200',
-      description: 'Alert management'
+    {
+      id: "notifications",
+      label: "Notifications",
+      icon: Bell,
+      color: "from-yellow-500 to-orange-500",
+      bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
+      borderColor: "border-yellow-200",
+      description: "Alert management",
     },
-    { 
-      id: 'ai', 
-      label: 'AI & Automation', 
-      icon: Brain, 
-      color: 'from-cyan-500 to-teal-500',
-      bgColor: 'bg-gradient-to-br from-cyan-50 to-teal-50',
-      borderColor: 'border-cyan-200',
-      description: 'Machine learning'
+    {
+      id: "ai",
+      label: "AI & Automation",
+      icon: Brain,
+      color: "from-cyan-500 to-teal-500",
+      bgColor: "bg-gradient-to-br from-cyan-50 to-teal-50",
+      borderColor: "border-cyan-200",
+      description: "Machine learning",
     },
-    { 
-      id: 'billing', 
-      label: 'Billing & Licensing', 
-      icon: Coins, 
-      color: 'from-emerald-500 to-green-500',
-      bgColor: 'bg-gradient-to-br from-emerald-50 to-green-50',
-      borderColor: 'border-emerald-200',
-      description: 'Enterprise controls'
+    {
+      id: "billing",
+      label: "Billing & Licensing",
+      icon: Coins,
+      color: "from-emerald-500 to-green-500",
+      bgColor: "bg-gradient-to-br from-emerald-50 to-green-50",
+      borderColor: "border-emerald-200",
+      description: "Enterprise controls",
     },
-    { 
-      id: 'developer', 
-      label: 'Developer Tools', 
-      icon: Code, 
-      color: 'from-violet-500 to-purple-500',
-      bgColor: 'bg-gradient-to-br from-violet-50 to-purple-50',
-      borderColor: 'border-violet-200',
-      description: 'Development environment'
+    {
+      id: "developer",
+      label: "Developer Tools",
+      icon: Code,
+      color: "from-violet-500 to-purple-500",
+      bgColor: "bg-gradient-to-br from-violet-50 to-purple-50",
+      borderColor: "border-violet-200",
+      description: "Development environment",
     },
-    { 
-      id: 'audit', 
-      label: 'Audit & Compliance', 
-      icon: FileText, 
-      color: 'from-slate-500 to-gray-500',
-      bgColor: 'bg-gradient-to-br from-slate-50 to-gray-50',
-      borderColor: 'border-slate-200',
-      description: 'Governance framework'
-    }
+    {
+      id: "audit",
+      label: "Audit & Compliance",
+      icon: FileText,
+      color: "from-slate-500 to-gray-500",
+      bgColor: "bg-gradient-to-br from-slate-50 to-gray-50",
+      borderColor: "border-slate-200",
+      description: "Governance framework",
+    },
   ];
 
   const renderCoreSystemSettings = () => (
@@ -179,15 +191,16 @@ const EnterpriseSettings = () => {
               <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 User & Access Management
               </CardTitle>
-              <CardDescription className="text-lg">Complete user lifecycle and access control management</CardDescription>
+              <CardDescription className="text-lg text-gray-600">
+                Complete user lifecycle and access control management
+              </CardDescription>
             </div>
-            <Badge variant="secondary" className="ml-auto">
-              <Star className="w-3 h-3 mr-1" />
-              Premium
+            <Badge className="ml-auto bg-yellow-100 text-yellow-700 border border-yellow-300">
+              <Star className="w-3 h-3 mr-1" /> Premium
             </Badge>
           </div>
         </CardHeader>
-        <CardContent className="space-y-8">
+        <CardContent className="p-6 space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100">
@@ -197,23 +210,39 @@ const EnterpriseSettings = () => {
                 </h4>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="auto-provisioning" className="font-medium">Auto User Provisioning</Label>
+                    <Label htmlFor="auto-provisioning" className="font-medium">
+                      Auto User Provisioning
+                    </Label>
                     <Switch id="auto-provisioning" />
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="rbac-enabled" className="font-medium">Role-Based Access Control</Label>
+                    <Label htmlFor="rbac-enabled" className="font-medium">
+                      Role-Based Access Control
+                    </Label>
                     <Switch id="rbac-enabled" defaultChecked />
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="mfa-required" className="font-medium">Multi-Factor Authentication</Label>
+                    <Label htmlFor="mfa-required" className="font-medium">
+                      Multi-Factor Authentication
+                    </Label>
                     <Switch id="mfa-required" defaultChecked />
                   </div>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="session-timeout" className="text-sm font-semibold">Session Timeout (minutes)</Label>
-                  <Input id="session-timeout" defaultValue="30" type="number" className="focus:ring-2 focus:ring-blue-500" />
+                  <Label
+                    htmlFor="session-timeout"
+                    className="text-sm font-semibold"
+                  >
+                    Session Timeout (minutes)
+                  </Label>
+                  <Input
+                    id="session-timeout"
+                    defaultValue="30"
+                    type="number"
+                    className="focus:ring-2 focus:ring-blue-500"
+                  />
                 </div>
               </div>
             </div>
@@ -225,7 +254,12 @@ const EnterpriseSettings = () => {
                 </h4>
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="password-policy" className="text-sm font-semibold">Password Policy</Label>
+                    <Label
+                      htmlFor="password-policy"
+                      className="text-sm font-semibold"
+                    >
+                      Password Policy
+                    </Label>
                     <Select defaultValue="strong">
                       <SelectTrigger className="focus:ring-2 focus:ring-cyan-500">
                         <SelectValue />
@@ -238,12 +272,24 @@ const EnterpriseSettings = () => {
                     </Select>
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="sso-integration" className="font-medium">SSO Integration</Label>
+                    <Label htmlFor="sso-integration" className="font-medium">
+                      SSO Integration
+                    </Label>
                     <Switch id="sso-integration" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="api-key-expiry" className="text-sm font-semibold">API Key Expiry (days)</Label>
-                    <Input id="api-key-expiry" defaultValue="90" type="number" className="focus:ring-2 focus:ring-cyan-500" />
+                    <Label
+                      htmlFor="api-key-expiry"
+                      className="text-sm font-semibold"
+                    >
+                      API Key Expiry (days)
+                    </Label>
+                    <Input
+                      id="api-key-expiry"
+                      defaultValue="90"
+                      type="number"
+                      className="focus:ring-2 focus:ring-cyan-500"
+                    />
                   </div>
                 </div>
               </div>
@@ -267,7 +313,10 @@ const EnterpriseSettings = () => {
               <CardTitle className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
                 Security Center
               </CardTitle>
-              <CardDescription className="text-lg">Advanced security monitoring and threat protection</CardDescription>
+              <CardDescription className="text-lg">
+                Enterprise-grade security with 20+ years of best practices and
+                compliance enforcement
+              </CardDescription>
             </div>
             <Badge variant="destructive" className="ml-auto">
               <AlertTriangle className="w-3 h-3 mr-1" />
@@ -285,18 +334,27 @@ const EnterpriseSettings = () => {
                 </h4>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="audit-logging" className="font-medium">Security Audit Logging</Label>
+                    <Label htmlFor="audit-logging" className="font-medium">
+                      Security Audit Logging
+                    </Label>
                     <Switch id="audit-logging" defaultChecked />
                   </div>
                   <div className="flex items-center justify-between p-3 rounded-lg bg-white/70 hover:bg-white transition-colors">
-                    <Label htmlFor="threat-detection" className="font-medium">Real-time Threat Detection</Label>
+                    <Label htmlFor="threat-detection" className="font-medium">
+                      Real-time Threat Detection
+                    </Label>
                     <Switch id="threat-detection" defaultChecked />
                   </div>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="encryption-level" className="text-sm font-semibold">Data Encryption Level</Label>
+                  <Label
+                    htmlFor="encryption-level"
+                    className="text-sm font-semibold"
+                  >
+                    Data Encryption Level
+                  </Label>
                   <Select defaultValue="aes256">
                     <SelectTrigger className="focus:ring-2 focus:ring-red-500">
                       <SelectValue />
@@ -318,7 +376,12 @@ const EnterpriseSettings = () => {
                 </h4>
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="backup-frequency" className="text-sm font-semibold">Backup Frequency</Label>
+                    <Label
+                      htmlFor="backup-frequency"
+                      className="text-sm font-semibold"
+                    >
+                      Backup Frequency
+                    </Label>
                     <Select defaultValue="daily">
                       <SelectTrigger className="focus:ring-2 focus:ring-rose-500">
                         <SelectValue />
@@ -331,7 +394,12 @@ const EnterpriseSettings = () => {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="compliance-framework" className="text-sm font-semibold">Compliance Framework</Label>
+                    <Label
+                      htmlFor="compliance-framework"
+                      className="text-sm font-semibold"
+                    >
+                      Compliance Framework
+                    </Label>
                     <Select defaultValue="gdpr">
                       <SelectTrigger className="focus:ring-2 focus:ring-rose-500">
                         <SelectValue />
@@ -345,8 +413,18 @@ const EnterpriseSettings = () => {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="retention-period" className="text-sm font-semibold">Data Retention (months)</Label>
-                    <Input id="retention-period" defaultValue="24" type="number" className="focus:ring-2 focus:ring-rose-500" />
+                    <Label
+                      htmlFor="retention-period"
+                      className="text-sm font-semibold"
+                    >
+                      Data Retention (months)
+                    </Label>
+                    <Input
+                      id="retention-period"
+                      defaultValue="24"
+                      type="number"
+                      className="focus:ring-2 focus:ring-rose-500"
+                    />
                   </div>
                 </div>
               </div>
@@ -365,14 +443,19 @@ const EnterpriseSettings = () => {
             <Network className="w-6 h-6 text-purple-600" />
             <span>Connectivity Hub</span>
           </CardTitle>
-          <CardDescription>Manage all external integrations and API connections</CardDescription>
+          <CardDescription>
+            Manage all external integrations and API connections
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="webhook-endpoint">Webhook Endpoint</Label>
-                <Input id="webhook-endpoint" placeholder="https://your-domain.com/webhooks" />
+                <Input
+                  id="webhook-endpoint"
+                  placeholder="https://your-domain.com/webhooks"
+                />
               </div>
               <div className="flex items-center justify-between">
                 <Label htmlFor="slack-integration">Slack Integration</Label>
@@ -403,8 +486,14 @@ const EnterpriseSettings = () => {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="db-connection">Database Connection String</Label>
-                <Input id="db-connection" placeholder="postgresql://..." type="password" />
+                <Label htmlFor="db-connection">
+                  Database Connection String
+                </Label>
+                <Input
+                  id="db-connection"
+                  placeholder="postgresql://..."
+                  type="password"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="cloud-storage">Cloud Storage Provider</Label>
@@ -434,7 +523,9 @@ const EnterpriseSettings = () => {
             <Gauge className="w-6 h-6 text-green-600" />
             <span>Infrastructure & Performance</span>
           </CardTitle>
-          <CardDescription>System optimization and resource management</CardDescription>
+          <CardDescription>
+            System optimization and resource management
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -504,7 +595,9 @@ const EnterpriseSettings = () => {
             <Building className="w-6 h-6 text-orange-600" />
             <span>Organization Settings</span>
           </CardTitle>
-          <CardDescription>Branding, localization, and UI customization</CardDescription>
+          <CardDescription>
+            Branding, localization, and UI customization
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -519,7 +612,10 @@ const EnterpriseSettings = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="custom-domain">Custom Domain</Label>
-                <Input id="custom-domain" placeholder="dashboard.yourcompany.com" />
+                <Input
+                  id="custom-domain"
+                  placeholder="dashboard.yourcompany.com"
+                />
               </div>
               <div className="flex items-center justify-between">
                 <Label htmlFor="white-label">White Label Mode</Label>
@@ -584,7 +680,9 @@ const EnterpriseSettings = () => {
             <Layers className="w-6 h-6 text-indigo-600" />
             <span>Data Governance</span>
           </CardTitle>
-          <CardDescription>Comprehensive data quality and lifecycle management</CardDescription>
+          <CardDescription>
+            Comprehensive data quality and lifecycle management
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -602,7 +700,9 @@ const EnterpriseSettings = () => {
                 <Switch id="lineage-tracking" defaultChecked />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="schema-validation">Schema Validation Level</Label>
+                <Label htmlFor="schema-validation">
+                  Schema Validation Level
+                </Label>
                 <Select defaultValue="strict">
                   <SelectTrigger>
                     <SelectValue />
@@ -662,7 +762,9 @@ const EnterpriseSettings = () => {
             <AlertCircle className="w-6 h-6 text-yellow-600" />
             <span>Alert Management</span>
           </CardTitle>
-          <CardDescription>Configure all notification channels and alert policies</CardDescription>
+          <CardDescription>
+            Configure all notification channels and alert policies
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -695,7 +797,9 @@ const EnterpriseSettings = () => {
             </div>
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="escalation-time">Escalation Time (minutes)</Label>
+                <Label htmlFor="escalation-time">
+                  Escalation Time (minutes)
+                </Label>
                 <Input id="escalation-time" defaultValue="15" type="number" />
               </div>
               <div className="space-y-2">
@@ -730,7 +834,10 @@ const EnterpriseSettings = () => {
             <Sparkles className="w-6 h-6 text-cyan-600" />
             <span>AI & Automation</span>
           </CardTitle>
-          <CardDescription>Machine learning and intelligent automation configuration</CardDescription>
+          <CardDescription>
+            Advanced automation built from decades of enterprise R&D in AI and
+            data science
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -744,17 +851,28 @@ const EnterpriseSettings = () => {
                 <Switch id="auto-workflows" defaultChecked />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="alert-threshold">Intelligent Alert Threshold</Label>
-                <Input id="alert-threshold" defaultValue="0.85" type="number" step="0.01" />
+                <Label htmlFor="alert-threshold">
+                  Intelligent Alert Threshold
+                </Label>
+                <Input
+                  id="alert-threshold"
+                  defaultValue="0.85"
+                  type="number"
+                  step="0.01"
+                />
               </div>
               <div className="flex items-center justify-between">
-                <Label htmlFor="predictive-analytics">Predictive Analytics</Label>
+                <Label htmlFor="predictive-analytics">
+                  Predictive Analytics
+                </Label>
                 <Switch id="predictive-analytics" defaultChecked />
               </div>
             </div>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Label htmlFor="nlp-processing">Natural Language Processing</Label>
+                <Label htmlFor="nlp-processing">
+                  Natural Language Processing
+                </Label>
                 <Switch id="nlp-processing" />
               </div>
               <div className="flex items-center justify-between">
@@ -789,7 +907,9 @@ const EnterpriseSettings = () => {
             <TrendingUp className="w-6 h-6 text-emerald-600" />
             <span>Enterprise Controls</span>
           </CardTitle>
-          <CardDescription>Subscription, usage monitoring, and license management</CardDescription>
+          <CardDescription>
+            Subscription, usage monitoring, and license management
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -848,7 +968,9 @@ const EnterpriseSettings = () => {
             <GitBranch className="w-6 h-6 text-violet-600" />
             <span>Development Environment</span>
           </CardTitle>
-          <CardDescription>Development tools, testing, and deployment configuration</CardDescription>
+          <CardDescription>
+            Development tools, testing, and deployment configuration
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -925,7 +1047,9 @@ const EnterpriseSettings = () => {
             <Monitor className="w-6 h-6 text-slate-600" />
             <span>Governance Framework</span>
           </CardTitle>
-          <CardDescription>Comprehensive audit trails and compliance management</CardDescription>
+          <CardDescription>
+            Comprehensive audit trails and compliance management
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -935,11 +1059,15 @@ const EnterpriseSettings = () => {
                 <Switch id="audit-trail" defaultChecked />
               </div>
               <div className="flex items-center justify-between">
-                <Label htmlFor="compliance-reporting">Compliance Reporting</Label>
+                <Label htmlFor="compliance-reporting">
+                  Compliance Reporting
+                </Label>
                 <Switch id="compliance-reporting" defaultChecked />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="risk-assessment">Risk Assessment Frequency</Label>
+                <Label htmlFor="risk-assessment">
+                  Risk Assessment Frequency
+                </Label>
                 <Select defaultValue="monthly">
                   <SelectTrigger>
                     <SelectValue />
@@ -975,7 +1103,9 @@ const EnterpriseSettings = () => {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="audit-retention">Audit Log Retention (years)</Label>
+                <Label htmlFor="audit-retention">
+                  Audit Log Retention (years)
+                </Label>
                 <Input id="audit-retention" defaultValue="7" type="number" />
               </div>
             </div>
@@ -987,32 +1117,44 @@ const EnterpriseSettings = () => {
 
   const renderCategoryContent = () => {
     switch (activeCategory) {
-      case 'core': return renderCoreSystemSettings();
-      case 'security': return renderSecuritySettings();
-      case 'integration': return renderIntegrationSettings();
-      case 'infrastructure': return renderInfrastructureSettings();
-      case 'customization': return renderCustomizationSettings();
-      case 'data': return renderDataManagementSettings();
-      case 'notifications': return renderNotificationSettings();
-      case 'ai': return renderAISettings();
-      case 'billing': return renderBillingSettings();
-      case 'developer': return renderDeveloperSettings();
-      case 'audit': return renderAuditSettings();
-      default: return renderCoreSystemSettings();
+      case "core":
+        return renderCoreSystemSettings();
+      case "security":
+        return renderSecuritySettings();
+      case "integration":
+        return renderIntegrationSettings();
+      case "infrastructure":
+        return renderInfrastructureSettings();
+      case "customization":
+        return renderCustomizationSettings();
+      case "data":
+        return renderDataManagementSettings();
+      case "notifications":
+        return renderNotificationSettings();
+      case "ai":
+        return renderAISettings();
+      case "billing":
+        return renderBillingSettings();
+      case "developer":
+        return renderDeveloperSettings();
+      case "audit":
+        return renderAuditSettings();
+      default:
+        return renderCoreSystemSettings();
     }
   };
 
-  const activeConfig = settingsCategories.find(cat => cat.id === activeCategory);
+  const activeConfig = settingsCategories.find(
+    (cat) => cat.id === activeCategory
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
-      
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100/20 to-purple-100/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-100/20 to-cyan-100/20 rounded-full blur-3xl"></div>
+
       <div className="container mx-auto p-8 relative z-10">
-        {/* Enhanced Header */}
         <div className="mb-12 text-center relative">
           <div className="inline-flex items-center space-x-3 mb-4">
             <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-xl">
@@ -1022,7 +1164,9 @@ const EnterpriseSettings = () => {
               <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-2">
                 Enterprise Settings
               </h1>
-              <p className="text-xl text-slate-600 font-medium">Comprehensive system configuration and management</p>
+              <p className="text-xl text-slate-600 font-medium">
+                Comprehensive system configuration and management
+              </p>
             </div>
           </div>
         </div>
@@ -1030,26 +1174,32 @@ const EnterpriseSettings = () => {
         {/* Enhanced Category Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-12">
           {settingsCategories.map((category) => (
-            <Card 
+            <Card
               key={category.id}
               className={`cursor-pointer transition-all duration-300 hover:scale-105 border-2 ${
-                activeCategory === category.id 
-                  ? `${category.borderColor} ${category.bgColor} shadow-xl` 
-                  : 'border-gray-200 bg-white hover:shadow-lg'
+                activeCategory === category.id
+                  ? `${category.borderColor} ${category.bgColor} shadow-xl`
+                  : "border-gray-200 bg-white hover:shadow-lg"
               }`}
               onClick={() => setActiveCategory(category.id)}
             >
               <CardContent className="p-6 text-center">
-                <div className={`w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center ${
-                  activeCategory === category.id 
-                    ? `bg-gradient-to-br ${category.color} text-white shadow-lg` 
-                    : 'bg-gray-100 text-gray-600'
-                }`}>
+                <div
+                  className={`w-12 h-12 mx-auto mb-3 rounded-xl flex items-center justify-center ${
+                    activeCategory === category.id
+                      ? `bg-gradient-to-br ${category.color} text-white shadow-lg`
+                      : "bg-gray-100 text-gray-600"
+                  }`}
+                >
                   <category.icon className="w-6 h-6" />
                 </div>
-                <h3 className={`font-semibold text-sm mb-1 ${
-                  activeCategory === category.id ? 'text-gray-900' : 'text-gray-700'
-                }`}>
+                <h3
+                  className={`font-semibold text-sm mb-1 ${
+                    activeCategory === category.id
+                      ? "text-gray-900"
+                      : "text-gray-700"
+                  }`}
+                >
                   {category.label}
                 </h3>
                 <p className="text-xs text-gray-500">{category.description}</p>
@@ -1064,11 +1214,15 @@ const EnterpriseSettings = () => {
             <Card className="glass-card border-0 shadow-xl">
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${activeConfig.color} text-white shadow-lg`}>
+                  <div
+                    className={`p-3 rounded-xl bg-gradient-to-br ${activeConfig.color} text-white shadow-lg`}
+                  >
                     <activeConfig.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900">{activeConfig.label}</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      {activeConfig.label}
+                    </h2>
                     <p className="text-gray-600">{activeConfig.description}</p>
                   </div>
                   <ChevronRight className="w-6 h-6 text-gray-400" />
@@ -1081,7 +1235,7 @@ const EnterpriseSettings = () => {
         {/* Content Area */}
         <div className="space-y-8">
           {renderCategoryContent()}
-          
+
           {/* Enhanced Save Actions */}
           <Card className="glass-card border-0 shadow-xl">
             <CardContent className="p-8">
@@ -1089,8 +1243,12 @@ const EnterpriseSettings = () => {
                 <div className="flex items-center space-x-3">
                   <Verified className="w-6 h-6 text-green-500" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Configuration Status</h3>
-                    <p className="text-sm text-gray-600">All changes will be applied system-wide</p>
+                    <h3 className="font-semibold text-gray-900">
+                      Configuration Status
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      All changes will be applied system-wide
+                    </p>
                   </div>
                 </div>
                 <div className="flex space-x-4">
